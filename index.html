@@ -26,7 +26,6 @@
             line-height: 1.6;
         }
 
-        /* هيدر عصري */
         header {
             background-color: var(--primary);
             padding: 80px 20px;
@@ -42,7 +41,11 @@
             margin-bottom: 10px;
         }
 
-        .icon-svg { width: 50px; fill: var(--accent); }
+        /* تعديل SVG ليظهر اللون الذهبي */
+        .icon-svg { 
+            width: 50px; 
+            fill: var(--accent); 
+        }
 
         header h1 { 
             font-family: 'Amiri', serif; 
@@ -52,7 +55,6 @@
 
         header p { color: var(--accent); font-weight: 300; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* ناف بار انسيابي */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -107,7 +109,6 @@
             position: relative;
         }
 
-        /* تصميم الكروت الجديد (حيوية وسلاسة) */
         .items-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -164,7 +165,6 @@
 
         .item-details p { color: #555; font-size: 0.9rem; font-weight: 300; }
 
-        /* قصتنا - حيوية وسلسة */
         .story-section {
             background: var(--primary);
             color: var(--bg);
@@ -202,8 +202,9 @@
         }
 
         @media (max-width: 600px) {
-            .section-header h2 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 2rem; }
             .story-section { padding: 60px 20px; border-radius: 30px; }
+            .story-content p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -212,8 +213,9 @@
 <header>
     <div class="brand-logo">
         <svg class="icon-svg" viewBox="0 0 100 100">
-            <path d="M50,10 C25,10 5,30 5,55 C5,80 25,90 50,90 C75,90 95,80 95,55 C95,30 75,10 50,10 Z M50,20 C70,20 85,35 85,55 C85,75 70,80 50,80 C30,80 15,75 15,55 C15,35 30,20 50,20 Z" />
-            <path d="M50,30 L40,55 L45,55 L40,70 L60,70 L55,55 L60,55 L50,30 Z" />
+            <!-- تصحيح مسار الشجرة ليظهر بشكل أفضل -->
+            <path d="M50,10 C30,10 15,25 15,45 C15,65 25,80 50,90 C75,80 85,65 85,45 C85,25 70,10 50,10 Z" fill="var(--accent)"/>
+            <path d="M50,25 L42,50 L48,50 L44,72 L56,72 L52,50 L58,50 L50,25 Z" fill="var(--primary)"/>
         </svg>
         <h1>Tree</h1>
     </div>
@@ -234,28 +236,28 @@
         </div>
         <div class="items-grid">
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="حار"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="كوب قهوة حامض ساخن في فنجان زجاجي"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>قهوة اليوم (حار)</h3><span class="price-badge">10 ر.س</span></div>
                     <p>كوب دافئ يُحضر يومياً من أجود المحاصيل الموسمية المختارة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600" alt="بارد"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600" alt="قهوة مثلجة في كوب زجاجي مع مكعبات ثلج"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>قهوة اليوم (بارد)</h3><span class="price-badge">12 ر.س</span></div>
                     <p>استخلاص بطيء يمنحك انتعاشاً صافياً في كل رشفة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=600" alt="V60"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=600" alt="جهاز تحضير قهوة V60 مع قطرات قهوة"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>V60 (حار)</h3><span class="price-badge">15 ر.س</span></div>
                     <p>تحضير يدوي دقيق يبرز النوتات العطرية والفاكهية للمحصول.</p>
                 </div>
             </div>
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="V60 بارد"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="قهوة V60 مثلجة مع ثلج"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>V60 (بارد)</h3><span class="price-badge">16 ر.س</span></div>
                     <p>توازن مثالي بين النقاء والبرودة لعشاق القهوة المختصة.</p>
@@ -270,21 +272,21 @@
         </div>
         <div class="items-grid">
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600" alt="كوكيز"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600" alt="كوكيز بالشوكولاتة على طبق"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>كوكيز Tree</h3><span class="price-badge">12 ر.س</span></div>
                     <p>مخبوز بحب، مقرمش من الأطراف وطري من الداخل بقطع الشوكولاتة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=600" alt="كرسبي"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=600" alt="حلوى كرسبي مغطاة بالشوكولاتة"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>كرسبي</h3><span class="price-badge">14 ر.س</span></div>
                     <p>توليفة مقرمشة مغطاة بطبقة غنية من الشوكولاتة البلجيكية.</p>
                 </div>
             </div>
             <div class="item-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1453923232015-89f4b9345e62?w=600" alt="براوني"></div>
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1453923232015-89f4b9345e62?w=600" alt="قطعة براوني شوكولاتة"></div>
                 <div class="item-details">
                     <div class="item-header"><h3>براوني</h3><span class="price-badge">13 ر.س</span></div>
                     <p>تجربة غنية ومكثفة من الشوكولاتة الداكنة التي تذوب في الفم.</p>
@@ -293,6 +295,7 @@
         </div>
     </section>
 
+    <!-- تم إضافة id="about" هنا ليعمل الرابط بشكل صحيح -->
     <section id="about" class="story-section">
         <div class="story-content">
             <h2>جذورنا.. حكايتنا</h2>
