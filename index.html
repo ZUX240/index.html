@@ -8,7 +8,7 @@
     
     <style>
         :root {
-            --primary-green: #1E3D2F; /* أخضر داكن للخلفيات السفلية والنصوص */
+            --primary-green: #1E3D2F; /* أخضر داكن للباك جراوند والنصوص */
             --accent-brown: #A27D4C; /* بني مميز للعناوين الفرعية والأسعار */
             --bg-cream: #FAF6EF; /* بيج فاتح للخلفية الرئيسية */
             --card-white: #FFFFFF; /* أبيض للبطاقات */
@@ -30,19 +30,18 @@
             direction: rtl;
         }
 
-        /* تنسيق قسم الهيدر بالخلفية الجديدة */
+        /* تنسيق قسم الهيدر بخلفية فخمة ومباشرة من النت */
         header {
-            /* دمج الصورة الجديدة كخلفية احترافية */
-            background-image: linear-gradient(rgba(31, 61, 47, 0.8), rgba(31, 61, 47, 0.8)), /* تراكب أخضر داكن للتباين */
-                              url('header_coffee_background.jpg'); /* اسم ملف الصورة الجديدة */
+            background-image: linear-gradient(rgba(31, 61, 47, 0.8), rgba(31, 61, 47, 0.8)), 
+                              url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200'); 
             background-size: cover;
             background-position: center;
-            height: 350px; /* ارتفاع مناسب لقسم الهيدر */
+            height: 350px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--text-light); /* تغيير لون النص ليكون أبيض/فاتح فوق الخلفية الداكنة */
+            color: var(--text-light); 
             text-align: center;
             padding: 0 20px;
         }
@@ -51,7 +50,7 @@
             font-family: 'Amiri', serif;
             font-weight: 700;
             font-size: 80px;
-            color: var(--text-light); /* أبيض */
+            color: var(--text-light); 
             margin-bottom: 5px;
             text-align: center;
         }
@@ -59,7 +58,7 @@
         /* العبارة الرئيسية */
         header p.main-slogan {
             font-size: 20px;
-            color: var(--accent-brown); /* الحفاظ على البني المميز */
+            color: var(--accent-brown); 
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
@@ -70,15 +69,10 @@
         /* الوصف القصير */
         header p.main-desc {
             font-size: 16px;
-            color: var(--text-light); /* أبيض */
+            color: var(--text-light); 
             text-align: center;
             max-width: 500px;
             margin: 0 auto;
-        }
-
-        /* إزالة تراكب النص الباهت القديم */
-        .background-text {
-            display: none;
         }
 
         /* شريط التنقل */
@@ -100,6 +94,7 @@
             color: var(--text-dark);
             font-size: 16px;
             font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         ul.nav-links li a:hover,
@@ -131,7 +126,7 @@
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             overflow: hidden;
-            padding: 10px;
+            padding: 15px;
             transition: transform 0.3s ease;
         }
 
@@ -201,6 +196,7 @@
             max-width: 600px;
             font-size: 14px;
             color: var(--text-light);
+            line-height: 1.7;
         }
 
         /* الفروع */
@@ -222,12 +218,14 @@
             color: var(--text-light);
             text-decoration: none;
             margin-left: 10px;
+            font-weight: bold;
         }
 
         /* تذييل الصفحة (Footer) */
         footer.main-footer {
             text-align: center;
-            padding-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(250, 246, 239, 0.1);
         }
 
         h1.footer-logo {
@@ -236,11 +234,13 @@
             font-size: 35px;
             color: var(--text-light);
             margin-bottom: 10px;
+            text-align: center;
         }
 
         p.copyright {
             font-size: 12px;
             color: rgba(250, 246, 239, 0.7);
+            text-align: center;
         }
 
         /* شبكة 4 أعمدة للقهوة */
@@ -260,6 +260,9 @@
             }
             .about-nod-image {
                 width: 100%;
+            }
+            header h1.main-title {
+                font-size: 50px;
             }
         }
     </style>
@@ -286,7 +289,7 @@
         <h2 class="section-title">☕ إصدارات القهوة</h2>
         <div class="card-grid coffee-grid">
             <article class="product-card">
-                <img src="coffee_daily_hot.jpg" alt="قهوة اليوم (حار)">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="قهوة اليوم (حار)">
                 <div class="product-card-details">
                     <h3>قهوة اليوم (حار)</h3>
                     <span class="price">8 ر.س</span>
@@ -294,7 +297,7 @@
                 <p class="desc">كوب كلاسيكي يرافقك في بداية يومك بكل هدوء.</p>
             </article>
             <article class="product-card">
-                <img src="coffee_daily_iced.jpg" alt="قهوة اليوم (بارد)">
+                <img src="https://images.unsplash.com/photo-1499961024600-ad094db305cc?q=80&w=600" alt="قهوة اليوم (بارد)">
                 <div class="product-card-details">
                     <h3>قهوة اليوم (بارد)</h3>
                     <span class="price">8 ر.س</span>
@@ -302,7 +305,7 @@
                 <p class="desc">الخيار المنعش لبداية صيفية مفعمة بالنشاط.</p>
             </article>
             <article class="product-card">
-                <img src="coffee_v60_hot.jpg" alt="V60 (حار)">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=600" alt="V60 (حار)">
                 <div class="product-card-details">
                     <h3>V60 (حار)</h3>
                     <span class="price">12 ر.س</span>
@@ -310,7 +313,7 @@
                 <p class="desc">استخلاص يدوي دقيق يبرز نوتات المحصول المختص.</p>
             </article>
             <article class="product-card">
-                <img src="coffee_v60_iced.jpg" alt="V60 (بارد)">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600" alt="V60 (بارد)">
                 <div class="product-card-details">
                     <h3>V60 (بارد)</h3>
                     <span class="price">12 ر.س</span>
@@ -324,7 +327,7 @@
         <h2 class="section-title">🍰 الحلويات</h2>
         <div class="card-grid desserts-grid">
             <article class="product-card">
-                <img src="sweet_cookie.jpg" alt="كوكيز نُود">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز نُود">
                 <div class="product-card-details">
                     <h3>كوكيز نُود</h3>
                     <span class="price">10 ر.س</span>
@@ -332,7 +335,7 @@
                 <p class="desc">مخبوز طازج بقطع الشوكولاتة الفاخرة.</p>
             </article>
             <article class="product-card">
-                <img src="sweet_tiramisu.jpg" alt="تراميسو">
+                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=600" alt="تراميسو">
                 <div class="product-card-details">
                     <h3>تراميسو</h3>
                     <span class="price">14 ر.س</span>
@@ -340,7 +343,7 @@
                 <p class="desc">وصفة إيطالية أصيلة بلمسة قهوة نُود المركزة.</p>
             </article>
             <article class="product-card">
-                <img src="sweet_croissant.jpg" alt="كروسان">
+                <img src="https://images.unsplash.com/photo-1555507036-ab794f4afe5c?q=80&w=600" alt="كروسان">
                 <div class="product-card-details">
                     <h3>كروسان</h3>
                     <span class="price">9 ر.س</span>
@@ -354,7 +357,7 @@
 <div class="footer-sections">
     <div id="about-nod" class="about-nod-container">
         <h3 class="footer-sub-title">قصتنا</h3>
-        <img src="coffee_farm.jpg" alt="مزرعة قهوة" class="about-nod-image">
+        <img src="https://images.unsplash.com/photo-1497933321027-94483b48f624?q=80&w=600" alt="تحضير قهوة" class="about-nod-image">
         <p>في 'نُود'، نؤمن أن القهوة ليست مجرد مشروب، بل هي حالة من التمايل بين الهدوء والتركيز. اخترنا اسمنا من لغتنا الفصحى ليعبر عن الوقار والجودة التي تليق بذائقتكم.</p>
     </div>
 
