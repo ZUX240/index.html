@@ -3,39 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نُود | نحن لا نبيع مجرد قهوة نحن نبيع تجربه </title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans+Arabic:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>نُود | تجربة القهوة الفصحى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,400&family=Noto+Sans+Arabic:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #1a2e22; /* أخضر غامق ملكي - أعمق قليلاً */
-            --accent: #c49a6c;  /* لون القهوة المختصة */
+            --primary: #1a2e22; 
+            --accent: #c49a6c;  
             --bg: #fdfaf5;
             --white: #ffffff;
             --text-dark: #1a1a1a;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --light-gray: #f0ede5;
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Noto Sans Arabic', sans-serif;
             background-color: var(--bg);
             color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.8;
         }
 
-        /* Hero Section - إصلاح التدرج والصورة */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 46, 34, 0.85), rgba(26, 46, 34, 0.85)), 
+            background: linear-gradient(rgba(26, 46, 34, 0.9), rgba(26, 46, 34, 0.9)), 
                         url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
-            height: 70vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,145 +42,102 @@
 
         .hero h1 {
             font-family: 'Amiri', serif;
-            font-size: clamp(60px, 10vw, 100px); /* حجم خط متجاوب */
-            margin-bottom: 10px;
-            line-height: 1;
+            font-size: clamp(80px, 15vw, 130px);
+            margin-bottom: 0px;
+            line-height: 0.8;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+        .hero .slogan {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: var(--accent);
+            margin: 20px 0;
+            font-style: italic;
         }
 
-        /* Navigation - تحسين الأزرار */
+        /* Navigation Bar */
         .nav-container {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(253, 250, 245, 0.9);
-            backdrop-filter: blur(10px);
+            z-index: 1000;
+            background: rgba(253, 250, 245, 0.98);
+            backdrop-filter: blur(15px);
             padding: 15px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+        .nav-tabs { display: flex; justify-content: center; gap: 10px; }
 
-        .tab-btn {
-            background: transparent;
-            border: 1px solid transparent;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 500;
+        .nav-tabs a {
+            text-decoration: none;
             color: var(--primary);
-            cursor: pointer;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 500;
             font-size: 0.95rem;
         }
 
-        .tab-btn.active {
+        .nav-tabs a:hover, .nav-tabs a.active {
             background: var(--primary);
             color: var(--white);
-            box-shadow: 0 4px 12px rgba(26, 46, 34, 0.2);
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-family: 'Amiri', serif; color: var(--primary); }
 
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        /* Menu Grid - إصلاحات التجاوب */
+        /* Menu Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: var(--shadow);
-            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-        }
+        .card:hover { transform: translateY(-15px); }
+        .card img { width: 100%; height: 280px; object-fit: cover; }
+        .card-content { padding: 30px; }
+        .price { color: var(--accent); font-weight: 700; font-size: 1.3rem; }
 
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
+        /* About Section (عن نُود) */
+        #about { background: var(--light-gray); }
+        .about-flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-img { flex: 1; min-width: 300px; border-radius: 40px; overflow: hidden; height: 400px; }
+        .about-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-title-row {
+        /* Branches Section (الفروع) */
+        .branch-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 25px;
+            border-right: 6px solid var(--primary);
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
         }
-
-        .card-title-row h3 { font-size: 1.15rem; color: var(--primary); }
-        .price { color: var(--accent); font-weight: 700; font-size: 1.1rem; }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 25px;
-            min-height: 45px;
-        }
-
-        .add-btn {
-            width: 100%;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        .add-btn:hover {
-            background: var(--accent);
-            letter-spacing: 1px;
-        }
+        .branch-info h4 { color: var(--primary); margin-bottom: 5px; }
+        .map-link { color: var(--accent); font-weight: 700; text-decoration: none; }
 
         footer {
             background: var(--primary);
             color: var(--white);
             text-align: center;
-            padding: 60px 20px;
-            margin-top: 80px;
+            padding: 80px 20px;
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 55px; }
-            .nav-tabs { flex-wrap: wrap; justify-content: center; }
-            .tab-btn { padding: 8px 15px; font-size: 0.8rem; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 80px; }
+            .nav-tabs a { padding: 8px 15px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -193,66 +145,96 @@
 
 <section class="hero">
     <h1>نُـود</h1>
-    <p>لحظات نادرة تُصاغ في فنجان.. بين رصانة الفصحى وعمق المحصول.</p>
+    <div class="slogan">نحن لا نبيع مجرد قهوة، نحن نبيع تجربة</div>
+    <p style="font-weight: 300; opacity: 0.8; max-width: 600px;">بين رصانة الفصحى وعمق المحصول، ننسج لك حكاية في كل فنجان.</p>
 </section>
 
 <div class="nav-container">
-    <div class="nav-tabs">
-        <button class="tab-btn active">قائمة القهوة</button>
-        <button class="tab-btn">الحلويات</button>
-        <button class="tab-btn">قصتنا</button>
+    <nav class="nav-tabs">
+        <a href="#menu" class="active">المنيو</a>
+        <a href="#about">عن نُود</a>
+        <a href="#branches">الفروع</a>
+    </nav>
+</div>
+
+<div id="menu" class="container">
+    <div class="section-header">
+        <h2>قائمة الإصدارات</h2>
+    </div>
+    <div class="menu-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&q=80&w=1000">
+            <div class="card-content">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                    <h3>V60 كولومبي</h3>
+                    <span class="price">22 ريال</span>
+                </div>
+                <p style="color:#666; font-size:0.95rem">محصول مختص بإيحاءات الكراميل والمكسرات.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=1000">
+            <div class="card-content">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                    <h3>آيس دريب</h3>
+                    <span class="price">24 ريال</span>
+                </div>
+                <p style="color:#666; font-size:0.95rem">استخلاص بارد لمدة 12 ساعة لنقاء لا يضاهى.</p>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="section-header">
-        <h2>إصدارات نُود</h2>
+<section id="about">
+    <div class="container">
+        <div class="about-flex">
+            <div class="about-text">
+                <h2 style="font-family:'Amiri',serif; font-size:2.5rem; color:var(--primary); margin-bottom:20px;">قصة نُود</h2>
+                <p>في "نُود"، نؤمن أن القهوة ليست مجرد مشروب عابر، بل هي حالة من "النود" أو التمايل بين الاسترخاء واليقظة. اخترنا اسمنا من لغتنا الفصحى ليعبر عن الوقار والجودة التي نقدمها في كل محصول مختص نختاره بعناية من مزارع العالم.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1497933321027-94483b48f624?auto=format&fit=crop&q=80&w=1000">
+            </div>
+        </div>
     </div>
-    
-    <div class="menu-grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?q=80&w=600" alt="V60">
-            <div class="card-content">
-                <div class="card-title-row">
-                    <h3>V60 كولومبي</h3>
-                    <span class="price">22 ر.س</span>
-                </div>
-                <p class="card-desc">إيحاءات الكراميل والمكسرات، منتقاة بعناية لمحبي التوازن.</p>
-                <button class="add-btn">اطلب الآن</button>
-            </div>
-        </div>
+</section>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=600" alt="Iced Coffee">
-            <div class="card-content">
-                <div class="card-title-row">
-                    <h3>آيس دريب (إثيوبي)</h3>
-                    <span class="price">24 ر.س</span>
-                </div>
-                <p class="card-desc">قهوة باردة مقطرة ببطء، غنية بالنوتات الفاكهية المنعشة.</p>
-                <button class="add-btn">اطلب الآن</button>
-            </div>
+<div id="branches" class="container">
+    <div class="section-header">
+        <h2>فروعنا</h2>
+    </div>
+    <div class="branch-card">
+        <div class="branch-info">
+            <h4>نُود - العليا</h4>
+            <p style="color:#666; font-size:0.9rem">الرياض، طريق الملك فهد</p>
         </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=600" alt="Sweet">
-            <div class="card-content">
-                <div class="card-title-row">
-                    <h3>تـرامـيـسـو نُود</h3>
-                    <span class="price">28 ر.س</span>
-                </div>
-                <p class="card-desc">خلطة سرية تجمع بين الكاكاو الفاخر وكريمة الماسكاربوني.</p>
-                <button class="add-btn">اطلب الآن</button>
-            </div>
+        <a href="#" class="map-link">الموقع 📍</a>
+    </div>
+    <div class="branch-card">
+        <div class="branch-info">
+            <h4>نُود - حطين</h4>
+            <p style="color:#666; font-size:0.9rem">الرياض، مجمع بوليفارد</p>
         </div>
+        <a href="#" class="map-link">الموقع 📍</a>
     </div>
 </div>
 
 <footer>
-    <div style="font-family: 'Amiri', serif; font-size: 32px; margin-bottom: 15px;">نُود</div>
-    <p style="font-weight: 300; opacity: 0.8;">الرياض، المملكة العربية السعودية</p>
-    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">© 2026 نُود كافيه. جميع الحقوق محفوظة.</p>
+    <div style="font-family: 'Amiri', serif; font-size: 40px; margin-bottom: 20px;">نُود</div>
+    <p>تابعنا على منصات التواصل @NodCoffee</p>
+    <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">© 2026 نُود كافيه. جميع الحقوق محفوظة.</p>
 </footer>
+
+<script>
+    // تغيير التبويب النشط عند النقر
+    const links = document.querySelectorAll('.nav-tabs a');
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            links.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
 
 </body>
 </html>
