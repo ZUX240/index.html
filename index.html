@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tree | القهوة المختصة</title>
+    <title>Tree | تجربة استثنائية</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans+Arabic:wght@300;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #1A3D2F; /* أخضر داكن صلب */
-            --accent: #C4A77D;  /* بيج */
-            --bg: #F3E5DC;      /* بيج فاتح للخلفية */
+            --primary: #1A3D2F; 
+            --accent: #C4A77D;  
+            --bg: #F8F3EE;      
             --white: #ffffff;
+            --shadow: rgba(26, 61, 47, 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Noto Sans Arabic', sans-serif;
@@ -24,10 +26,10 @@
             line-height: 1.6;
         }
 
-        /* هيدر أخضر داكن صلب - الاسم كابتل أول حرف */
+        /* هيدر عصري */
         header {
             background-color: var(--primary);
-            padding: 50px 20px;
+            padding: 80px 20px;
             text-align: center;
             color: var(--white);
         }
@@ -36,127 +38,172 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 10px;
         }
 
-        .icon-svg { width: 40px; fill: var(--accent); }
+        .icon-svg { width: 50px; fill: var(--accent); }
 
         header h1 { 
             font-family: 'Amiri', serif; 
-            font-size: 3rem; 
+            font-size: clamp(3rem, 10vw, 4.5rem); 
+            letter-spacing: 1px;
         }
 
-        header p { color: var(--accent); font-weight: 300; }
+        header p { color: var(--accent); font-weight: 300; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* التنقل - ثابت ومستقر */
+        /* ناف بار انسيابي */
         nav {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px var(--shadow);
         }
 
         nav a {
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
         }
 
-        /* الحاوية الرئيسية للمنيو */
-        .menu-container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 20px;
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: var(--accent);
+            transition: 0.3s;
         }
 
-        .section-title {
+        nav a:hover::after { width: 100%; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
             text-align: center;
-            font-family: 'Amiri', serif;
-            font-size: 2rem;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
+            margin-bottom: 50px;
         }
 
-        /* نظام الشبكة المصلح */
+        .section-header h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+
+        /* تصميم الكروت الجديد (حيوية وسلاسة) */
         .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .item-card {
             background: var(--white);
-            border-radius: 15px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(26, 61, 47, 0.05);
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 61, 47, 0.15);
+        }
+
+        .image-wrapper {
+            overflow: hidden;
+            height: 250px;
         }
 
         .item-card img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            transition: 0.5s;
         }
 
-        .item-details {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+        .item-card:hover img { transform: scale(1.1); }
+
+        .item-details { padding: 25px; }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        .item-header h3 { font-size: 1.1rem; color: var(--primary); }
+        .item-header h3 { font-size: 1.3rem; font-weight: 600; }
 
-        .price {
+        .price-badge {
             background: var(--primary);
-            color: var(--white);
-            padding: 2px 10px;
-            border-radius: 5px;
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
-        .item-details p { font-size: 0.85rem; color: #666; }
+        .item-details p { color: #555; font-size: 0.9rem; font-weight: 300; }
 
-        /* قصتنا مرتبة */
-        .our-story {
+        /* قصتنا - حيوية وسلسة */
+        .story-section {
             background: var(--primary);
             color: var(--bg);
-            padding: 40px 25px;
-            border-radius: 20px;
+            padding: 100px 30px;
+            border-radius: 50px;
             text-align: center;
-            margin: 50px 0;
+            margin: 60px 0;
+            background-image: radial-gradient(circle at top right, rgba(188, 146, 101, 0.1), transparent);
         }
 
-        .our-story h2 { font-family: 'Amiri', serif; color: var(--accent); margin-bottom: 15px; }
-        .our-story p { max-width: 600px; margin: 0 auto; font-weight: 300; }
+        .story-content { max-width: 800px; margin: 0 auto; }
+
+        .story-content h2 { 
+            font-family: 'Amiri', serif; 
+            font-size: 3rem; 
+            color: var(--accent); 
+            margin-bottom: 30px; 
+        }
+
+        .story-content p { 
+            font-size: 1.2rem; 
+            line-height: 2; 
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .highlight { color: var(--accent); font-weight: 600; }
 
         footer {
-            background: #4a3425;
-            color: var(--white);
             text-align: center;
-            padding: 30px;
-            margin-top: 40px;
+            padding: 50px;
+            background: #122a20;
+            color: var(--accent);
+            font-size: 0.8rem;
         }
 
-        /* الجوال */
         @media (max-width: 600px) {
-            .items-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2.2rem; }
+            .story-section { padding: 60px 20px; border-radius: 30px; }
         }
     </style>
 </head>
@@ -170,7 +217,7 @@
         </svg>
         <h1>Tree</h1>
     </div>
-    <p>جذور الجودة.. في كل رشفة</p>
+    <p>Premium Specialty Coffee</p>
 </header>
 
 <nav>
@@ -179,78 +226,86 @@
     <a href="#about">قصتنا</a>
 </nav>
 
-<div class="menu-container">
+<div class="container">
     
     <section id="coffee">
-        <h2 class="section-title">قائمة القهوة</h2>
+        <div class="section-header">
+            <h2>قائمة القهوة</h2>
+        </div>
         <div class="items-grid">
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500" alt="حار">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="حار"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>قهوة اليوم (حار)</h3><span class="price">10 ر.س</span></div>
-                    <p>كوب دافئ من أجود المحاصيل.</p>
+                    <div class="item-header"><h3>قهوة اليوم (حار)</h3><span class="price-badge">10 ر.س</span></div>
+                    <p>كوب دافئ يُحضر يومياً من أجود المحاصيل الموسمية المختارة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500" alt="بارد">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600" alt="بارد"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>قهوة اليوم (بارد)</h3><span class="price">12 ر.س</span></div>
-                    <p>انتعاش القهوة المقطرة ببرودة مثالية.</p>
+                    <div class="item-header"><h3>قهوة اليوم (بارد)</h3><span class="price-badge">12 ر.س</span></div>
+                    <p>استخلاص بطيء يمنحك انتعاشاً صافياً في كل رشفة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=500" alt="V60">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=600" alt="V60"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>V60 (حار)</h3><span class="price">15 ر.س</span></div>
-                    <p>استخلاص يدوي يبرز إيحاءات المحصول.</p>
+                    <div class="item-header"><h3>V60 (حار)</h3><span class="price-badge">15 ر.س</span></div>
+                    <p>تحضير يدوي دقيق يبرز النوتات العطرية والفاكهية للمحصول.</p>
                 </div>
             </div>
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500" alt="V60 بارد">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="V60 بارد"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>V60 (بارد)</h3><span class="price">16 ر.س</span></div>
-                    <p>تجربة القهوة المختصة بنقاء وبرودة.</p>
+                    <div class="item-header"><h3>V60 (بارد)</h3><span class="price-badge">16 ر.س</span></div>
+                    <p>توازن مثالي بين النقاء والبرودة لعشاق القهوة المختصة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sweets">
-        <h2 class="section-title">ركن الحلا</h2>
+    <section id="sweets" style="margin-top: 80px;">
+        <div class="section-header">
+            <h2>ركن الحلا</h2>
+        </div>
         <div class="items-grid">
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500" alt="كوكيز">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600" alt="كوكيز"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>كوكيز Tree</h3><span class="price">12 ر.س</span></div>
-                    <p>مخبوز طازج بقطع الشوكولاتة الغنية.</p>
+                    <div class="item-header"><h3>كوكيز Tree</h3><span class="price-badge">12 ر.س</span></div>
+                    <p>مخبوز بحب، مقرمش من الأطراف وطري من الداخل بقطع الشوكولاتة.</p>
                 </div>
             </div>
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=500" alt="كرسبي">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=600" alt="كرسبي"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>كرسبي</h3><span class="price">14 ر.س</span></div>
-                    <p>قرمشة لذيذة مغطاة بالشوكولاتة.</p>
+                    <div class="item-header"><h3>كرسبي</h3><span class="price-badge">14 ر.س</span></div>
+                    <p>توليفة مقرمشة مغطاة بطبقة غنية من الشوكولاتة البلجيكية.</p>
                 </div>
             </div>
             <div class="item-card">
-                <img src="https://images.unsplash.com/photo-1453923232015-89f4b9345e62?w=500" alt="براوني">
+                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1453923232015-89f4b9345e62?w=600" alt="براوني"></div>
                 <div class="item-details">
-                    <div class="item-header"><h3>براوني</h3><span class="price">13 ر.س</span></div>
-                    <p>طعم شوكولاتة كثيف وقوام يذوب في الفم.</p>
+                    <div class="item-header"><h3>براوني</h3><span class="price-badge">13 ر.س</span></div>
+                    <p>تجربة غنية ومكثفة من الشوكولاتة الداكنة التي تذوب في الفم.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="our-story">
-        <h2>جذور Tree</h2>
-        <p>بدأت رحلتنا من الإيمان بأن القهوة ليست مجرد مشروب، بل هي رحلة تبدأ من عمق الأرض. في كل كوب، نروي قصة نمو أصيلة تجمع بين جودة المحصول وحرفية التحميص.</p>
+    <section id="about" class="story-section">
+        <div class="story-content">
+            <h2>جذورنا.. حكايتنا</h2>
+            <p>في <span class="highlight">Tree</span>، نحن لا نقدم مجرد كوب قهوة، بل نزرع تجربة تبدأ من <span class="highlight">الجذور</span>. استلهمنا اسمنا من ثبات الأشجار وعطائها المستمر، لنكون وجهتك الهادئة وسط صخب الحياة.</p>
+            <p>نؤمن بأن التفاصيل الصغيرة هي ما يصنع الفارق؛ من اختيار حبة البن بعناية، إلى التحميص بحرفية، وصولاً إلى كوبك الذي يحمل قصة <span class="highlight">نمو وشغف</span> لا ينتهي.</p>
+            <p style="font-style: italic; opacity: 0.8;">"أهلاً بك في ظلال Tree، حيث لكل رشفة أصل."</p>
+        </div>
     </section>
 
 </div>
 
 <footer>
-    <p>© 2026 براند Tree للقهوة المختصة</p>
+    <p>© 2026 Tree Specialty Coffee | جميع الحقوق محفوظة</p>
 </footer>
 
 </body>
