@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نُود | تجربة القهوة الفصحى</title>
+    <title>نُود | القهوة الفصحى</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans+Arabic:wght@300;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -26,10 +26,12 @@
             direction: rtl;
         }
 
-        /* الهيدر الرئيسي */
+        /* الهيدر */
         header {
-            background: linear-gradient(rgba(18, 34, 25, 0.7), rgba(18, 34, 25, 0.8)), 
-                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200') no-repeat center center/cover;
+            background: linear-gradient(rgba(18, 34, 25, 0.75), rgba(18, 34, 25, 0.75)), 
+                        url('https://source.unsplash.com/1200x800/?coffee,interior') no-repeat center center/cover;
+            /* في حال لم يعمل المصدر أعلاه، هذا رابط بديل ثابت */
+            background-image: linear-gradient(rgba(18, 34, 25, 0.75), rgba(18, 34, 25, 0.75)), url('https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200');
             height: 60vh;
             display: flex;
             flex-direction: column;
@@ -40,26 +42,17 @@
             padding: 20px;
         }
 
-        header h1 {
-            font-family: 'Amiri', serif;
-            font-size: clamp(50px, 10vw, 90px);
-            margin-bottom: 10px;
-        }
+        header h1 { font-family: 'Amiri', serif; font-size: clamp(50px, 10vw, 90px); margin-bottom: 10px; }
+        header .slogan { font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--accent); margin-bottom: 10px; }
 
-        header .slogan {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        /* القائمة العلوية الثابتة */
+        /* المنيو السريع */
         .nav-container {
             position: sticky;
             top: 10px;
             z-index: 1000;
             max-width: 500px;
             margin: -25px auto 40px auto;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 10px;
             border-radius: 50px;
@@ -67,93 +60,43 @@
         }
 
         .nav-tabs { display: flex; justify-content: space-around; list-style: none; }
-        .nav-tabs a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 8px 15px;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
+        .nav-tabs a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; padding: 8px 15px; border-radius: 25px; transition: 0.3s; }
         .nav-tabs a:hover { background: var(--primary); color: var(--white); }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .section-title { 
-            text-align: center; 
-            font-family: 'Amiri', serif; 
-            font-size: 2.2rem; 
-            margin-bottom: 40px; 
-            color: var(--primary);
-        }
+        .section-title { text-align: center; font-family: 'Amiri', serif; font-size: 2.2rem; margin-bottom: 40px; color: var(--primary); }
 
-        /* شبكة المنتجات */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
+        /* شبكة الكروت */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .card-info { padding: 20px; }
         .card-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
         .card-info .price { color: var(--accent); font-weight: 700; float: left; }
         .card-info p { font-size: 0.85rem; color: #666; clear: both; margin-top: 10px; }
 
-        /* قسم قصة نود */
-        #about { background: var(--white); padding: 60px 0; }
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+        /* قصة نود */
+        #about { background: var(--white); padding: 80px 0; }
+        .about-content { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
         .about-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; height: 350px; }
         .about-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* قسم الفروع */
-        .branch {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            border: 1px solid #eee;
-        }
+        /* الفروع */
+        .branch { background: var(--white); padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border: 1px solid #eee; }
         .branch a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-        }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 40px 20px; }
         footer .logo { font-family: 'Amiri', serif; font-size: 2rem; }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 40px; }
-            .nav-container { max-width: 90%; }
-        }
+        @media (max-width: 600px) { header h1 { font-size: 45px; } .nav-container { max-width: 95%; } }
     </style>
 </head>
 <body>
 
 <header>
     <h1>نُـود</h1>
-    <div class="slogan">نحن لا نبيع مجرد قهوة، نحن نبيع تجربة</div>
-    <p>بين رصانة الفصحى وعمق المحصول، ننسج لك حكاية في كل فنجان.</p>
+    <p class="slogan">نحن لا نبيع مجرد قهوة، نحن نبيع تجربة</p>
 </header>
 
 <div class="nav-container">
@@ -169,7 +112,7 @@
     <h2 class="section-title">إصدارات القهوة</h2>
     <div class="grid">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="قهوة">
+            <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="قهوة حارة">
             <div class="card-info">
                 <span class="price">8 ر.س</span>
                 <h3>قهوة اليوم (حار)</h3>
@@ -177,7 +120,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1499961024600-ad094db305cc?w=600" alt="قهوة">
+            <img src="https://images.pexels.com/photos/2615323/pexels-photo-2615323.jpeg?auto=compress&cs=tinysrgb&w=600" alt="V60">
             <div class="card-info">
                 <span class="price">12 ر.س</span>
                 <h3>V60 مختصة</h3>
@@ -185,7 +128,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="قهوة">
+            <img src="https://images.pexels.com/photos/2531551/pexels-photo-2531551.jpeg?auto=compress&cs=tinysrgb&w=600" alt="لاتيه مثلج">
             <div class="card-info">
                 <span class="price">10 ر.س</span>
                 <h3>لاتيه مثلج</h3>
@@ -199,7 +142,7 @@
     <h2 class="section-title">الحلويات</h2>
     <div class="grid">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600" alt="كوكيز">
+            <img src="https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=600" alt="كوكيز">
             <div class="card-info">
                 <span class="price">10 ر.س</span>
                 <h3>كوكيز نُود</h3>
@@ -207,7 +150,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1555507036-ab794f4afe5c?w=600" alt="كروسان">
+            <img src="https://images.pexels.com/photos/3724873/pexels-photo-3724873.jpeg?auto=compress&cs=tinysrgb&w=600" alt="كروسان">
             <div class="card-info">
                 <span class="price">9 ر.س</span>
                 <h3>كروسان زبدة</h3>
@@ -215,7 +158,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600" alt="تراميسو">
+            <img src="https://images.pexels.com/photos/6210933/pexels-photo-6210933.jpeg?auto=compress&cs=tinysrgb&w=600" alt="تراميسو">
             <div class="card-info">
                 <span class="price">14 ر.س</span>
                 <h3>تراميسو نُود</h3>
@@ -233,7 +176,7 @@
                 <p>في "نُود"، نؤمن أن القهوة ليست مجرد مشروب، بل هي لحظة من الصفاء. اخترنا اسمنا من لغتنا العربية ليعبر عن الوقار والجودة التي تليق بكم.</p>
             </div>
             <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1497933321027-94483b48f624?w=600" alt="قصتنا">
+                <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=600" alt="قصتنا">
             </div>
         </div>
     </div>
@@ -242,17 +185,11 @@
 <section id="branches" class="container">
     <h2 class="section-title">فروعنا</h2>
     <div class="branch">
-        <div>
-            <h4>فرع العليا</h4>
-            <small>الرياض - طريق الملك فهد</small>
-        </div>
+        <div><h4>فرع العليا</h4><small>الرياض - طريق الملك فهد</small></div>
         <a href="#">الخريطة 📍</a>
     </div>
     <div class="branch">
-        <div>
-            <h4>فرع الملقا</h4>
-            <small>الرياض - طريق أنس بن مالك</small>
-        </div>
+        <div><h4>فرع الملقا</h4><small>الرياض - طريق أنس بن مالك</small></div>
         <a href="#">الخريطة 📍</a>
     </div>
 </section>
