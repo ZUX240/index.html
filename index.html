@@ -28,11 +28,11 @@
             overflow-x: hidden;
         }
 
-        /* الهيدر والشعار */
+        /* الهيدر */
         header {
             background: linear-gradient(rgba(26, 61, 47, 0.85), rgba(18, 34, 25, 0.9)),
                         url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80') center/cover;
-            height: 50vh;
+            height: 45vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,76 +47,135 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .tree-coffee-icon {
-            width: clamp(40px, 8vw, 60px);
+            width: clamp(35px, 8vw, 55px);
             fill: var(--accent);
         }
 
         header h1 { 
             font-family: 'Amiri', serif; 
-            font-size: clamp(45px, 10vw, 85px); 
+            font-size: clamp(40px, 10vw, 80px); 
             line-height: 1;
         }
 
-        /* المنيو السريع */
+        /* المنيو السريع - ثابت ومصلح */
         .nav-container {
             position: sticky;
-            top: 15px;
+            top: 10px;
             z-index: 1000;
             width: 90%;
             max-width: 500px;
             margin: -25px auto 30px auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 8px;
+            background: var(--white);
+            padding: 10px;
             border-radius: 50px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-bottom: 3px solid var(--wood);
         }
 
-        .nav-tabs { display: flex; justify-content: space-around; list-style: none; }
+        .nav-tabs { 
+            display: flex; 
+            justify-content: space-around; 
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
         .nav-tabs a {
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             padding: 8px 15px;
-            border-radius: 25px;
+            border-radius: 20px;
             transition: 0.3s;
         }
+        
         .nav-tabs a:hover { background: var(--primary); color: var(--white); }
 
-        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .section-title { text-align: center; font-family: 'Amiri', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--primary); }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        .section-title { 
+            text-align: center; 
+            font-family: 'Amiri', serif; 
+            font-size: 2.2rem; 
+            margin: 40px 0 20px 0; 
+            color: var(--primary); 
+        }
 
-        /* الكروت */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        /* شبكة الكروت المصلحة */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 40px;
+        }
+
         .card {
             background: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-info { padding: 20px; }
-        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary); }
-        .card-info .price { 
+
+        .card img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+        }
+
+        .card-info { 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            flex-grow: 1;
+        }
+
+        /* إصلاح اختفاء السعر */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .card-info h3 { font-size: 1.1rem; color: var(--primary); margin: 0; }
+        
+        .price { 
             color: var(--white); 
             font-weight: 700; 
             background: var(--primary);
-            padding: 2px 10px;
-            border-radius: 5px;
-            float: left;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
-        .card-info p { font-size: 0.85rem; color: #666; clear: both; margin-top: 10px; }
 
-        footer { background: var(--wood); color: var(--white); text-align: center; padding: 40px 20px; margin-top: 50px; }
-        footer .logo { font-family: 'Amiri', serif; font-size: 2rem; }
+        .card-info p { 
+            font-size: 0.85rem; 
+            color: #666; 
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        footer { 
+            background: var(--wood); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 50px 20px; 
+            margin-top: 60px;
+        }
+        
+        footer .logo { font-family: 'Amiri', serif; font-size: 2.5rem; }
+
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            header { height: 40vh; }
+        }
     </style>
 </head>
 <body>
@@ -140,16 +199,94 @@
     </nav>
 </div>
 
-<section id="coffee" class="container">
-    <h2 class="section-title">إصدارات القهوة</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80" alt="قهوة اليوم">
-            <div class="card-info">
-                <span class="price">10 ر.س</span>
-                <h3>قهوة اليوم (حار)</h3>
-                <p>كوب دافئ يرافقك بتركيز عالي طوال اليوم.</p>
+<div class="container">
+    <section id="coffee">
+        <h2 class="section-title">إصدارات القهوة</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600" alt="حار">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>قهوة اليوم (حار)</h3>
+                        <span class="price">10 ر.س</span>
+                    </div>
+                    <p>كوب دافئ لبداية يومك بكل تركيز.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600" alt="بارد">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>قهوة اليوم (بارد)</h3>
+                        <span class="price">12 ر.س</span>
+                    </div>
+                    <p>انتعاش القهوة المقطرة ببرودة مثالية.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&w=600" alt="V60">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>V60 (حار)</h3>
+                        <span class="price">15 ر.س</span>
+                    </div>
+                    <p>استخلاص يدوي يبرز إيحاءات المحصول الفاخر.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600" alt="V60 بارد">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>V60 (بارد)</h3>
+                        <span class="price">16 ر.س</span>
+                    </div>
+                    <p>تجربة القهوة المختصة بنقاء وبرودة منعشة.</p>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash
+    </section>
+
+    <section id="sweets">
+        <h2 class="section-title">ركن الحلا</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600" alt="كوكيز">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>كوكيز</h3>
+                        <span class="price">12 ر.س</span>
+                    </div>
+                    <p>مخبوز طازج بقطع الشوكولاتة الداكنة.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?auto=format&fit=crop&w=600" alt="كرسبي">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>كرسبي</h3>
+                        <span class="price">14 ر.س</span>
+                    </div>
+                    <p>قرمشة الشوكولاتة الغنية في كل قطعة.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1453923232015-89f4b9345e62?auto=format&fit=crop&w=600" alt="براوني">
+                <div class="card-info">
+                    <div class="card-header">
+                        <h3>براوني</h3>
+                        <span class="price">13 ر.س</span>
+                    </div>
+                    <p>طعم شوكولاتة مكثف وقوام يذوب في الفم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="logo">TREE</div>
+    <p>© 2026 براند TREE - جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
