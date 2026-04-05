@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="description" content="Tree Specialty Coffee - قهوة مختصة وحلويات فاخرة في أجواء هادئة ومريحة">
     <meta name="keywords" content="قهوة, كافيه, مختصة, حلويات, Tree, رياض">
     <meta name="author" content="Tree Coffee">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
-    <title>Tree | قهوة مختصة - تجربة استثنائية</title>
+    <title>Tree | قهوة مختصة</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23C4A77D' d='M50,10 C30,10 15,25 15,45 C15,65 25,80 50,90 C75,80 85,65 85,45 C85,25 70,10 50,10 Z'/><path fill='%231A3D2F' d='M50,25 L42,50 L48,50 L44,72 L56,72 L52,50 L58,50 L50,25 Z'/></svg>">
     
@@ -21,68 +21,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #1A3D2F;
-            --primary-dark: #0F261D;
-            --primary-light: #2A5A45;
-            --accent: #C4A77D;
-            --accent-dark: #A88B5E;
-            --accent-light: #D9C5A6;
-            --bg: #F8F3EE;
-            --white: #ffffff;
-            --gray: #6B7280;
-            --gray-light: #9CA3AF;
-            --success: #10B981;
-            --shadow-sm: 0 4px 6px rgba(26, 61, 47, 0.07);
-            --shadow-md: 0 10px 25px rgba(26, 61, 47, 0.1);
-            --shadow-lg: 0 20px 40px rgba(26, 61, 47, 0.15);
-            --shadow-xl: 0 25px 50px rgba(26, 61, 47, 0.2);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --primary: #1A3D2F;
+            --primary-dark: #0F261D;
+            --accent: #C4A77D;
+            --accent-light: #D9C5A6;
+            --bg: #F8F3EE;
+            --white: #ffffff;
+            --gray: #6B7280;
+            --shadow-sm: 0 4px 12px rgba(26, 61, 47, 0.08);
+            --shadow-md: 0 8px 24px rgba(26, 61, 47, 0.12);
         }
 
         body {
             font-family: 'Noto Sans Arabic', sans-serif;
             background-color: var(--bg);
             color: var(--primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.5;
         }
 
-        /* تخصيص شريط التمرير */
+        /* شريط تمرير أنيق */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 4px;
         }
-
         ::-webkit-scrollbar-track {
             background: var(--bg);
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--accent);
             border-radius: 10px;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-dark);
-        }
-
-        /* هيدر متحرك */
+        /* Header - تصميم بسيط مثل الأول */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 100px 20px;
+            padding: 60px 20px;
             text-align: center;
-            color: var(--white);
             position: relative;
-            overflow: hidden;
         }
 
         header::before {
@@ -93,120 +75,82 @@
             right: 0;
             bottom: 0;
             background: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1920') center/cover;
-            opacity: 0.15;
-            pointer-events: none;
-            animation: slowZoom 20s ease infinite;
-        }
-
-        @keyframes slowZoom {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            opacity: 0.1;
         }
 
         .brand-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
+            gap: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .icon-svg {
-            width: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-            transition: transform 0.3s ease;
-        }
-
-        .brand-logo:hover .icon-svg {
-            transform: rotate(5deg);
+            width: 50px;
         }
 
         header h1 {
             font-family: 'Amiri', serif;
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            letter-spacing: 2px;
-            animation: fadeInUp 0.8s ease 0.1s backwards;
+            font-size: 3rem;
+            color: var(--white);
         }
 
         header p {
             color: var(--accent-light);
-            font-weight: 300;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* ناف بار لاصق */
+        /* ناف بار - مناسب للجوال */
         nav {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 18px 20px;
+            background: var(--white);
+            padding: 12px 16px;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 35px;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid rgba(196, 167, 125, 0.2);
+            border-bottom: 1px solid rgba(196, 167, 125, 0.3);
         }
 
         nav a {
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
-            font-size: 1rem;
-            transition: 0.3s;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            padding: 6px 0;
         }
 
         nav a i {
-            font-size: 1.1rem;
+            margin-left: 6px;
             color: var(--accent);
-            transition: 0.3s;
+            font-size: 0.9rem;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            right: 0;
-            background-color: var(--accent);
-            transition: 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a:hover {
+        nav a:active {
             color: var(--accent);
-        }
-
-        nav a:hover i {
-            transform: translateY(-2px);
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 16px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 35px;
         }
 
         .section-header h2 {
             font-family: 'Amiri', serif;
-            font-size: 3rem;
+            font-size: 2rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
@@ -215,20 +159,19 @@
         .section-header h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             right: 50%;
             transform: translateX(50%);
-            width: 60px;
-            height: 3px;
+            width: 50px;
+            height: 2px;
             background: var(--accent);
-            border-radius: 2px;
         }
 
-        /* شبكة المنتجات */
+        /* شبكة المنتجات - مناسبة للجوال */
         .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .item-card {
@@ -236,200 +179,116 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .item-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+        .item-card:active {
+            transform: scale(0.98);
         }
 
         .image-wrapper {
             position: relative;
+            height: 200px;
             overflow: hidden;
-            height: 260px;
-            background: linear-gradient(135deg, #e8e0d8 0%, #d4c9bf 100%);
+            background: #e8e0d8;
         }
 
         .image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .item-card:hover .image-wrapper img {
-            transform: scale(1.08);
         }
 
         .badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 12px;
+            right: 12px;
             background: var(--accent);
             color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 25px;
-            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
             font-weight: 700;
-            z-index: 1;
-            box-shadow: var(--shadow-sm);
         }
 
         .item-details {
-            padding: 25px;
+            padding: 16px;
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .item-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--primary);
         }
 
         .price-badge {
             background: var(--primary);
             color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 30px;
+            padding: 4px 12px;
+            border-radius: 25px;
+            font-size: 0.8rem;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .item-card:hover .price-badge {
-            background: var(--accent);
-            color: var(--primary);
         }
 
         .item-details p {
             color: var(--gray);
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 1.6;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
         }
 
         .order-btn {
-            margin-top: 20px;
             background: transparent;
-            border: 2px solid var(--accent);
+            border: 1.5px solid var(--accent);
             color: var(--primary);
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: 0.3s;
             width: 100%;
             font-family: inherit;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-        }
-
-        .order-btn:hover {
-            background: var(--accent);
-            color: var(--white);
-            transform: translateY(-2px);
+            transition: 0.2s;
         }
 
         .order-btn:active {
-            transform: translateY(0);
+            background: var(--accent);
+            color: var(--white);
         }
 
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--primary);
-            color: var(--accent-light);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            box-shadow: var(--shadow-lg);
-            direction: rtl;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast i {
-            margin-left: 8px;
-            color: var(--success);
-        }
-
-        /* قسم القصة */
+        /* قسم القصة - بسيط مثل الأول */
         .story-section {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--bg);
-            padding: 80px 30px;
-            border-radius: 40px;
+            padding: 50px 20px;
+            border-radius: 25px;
             text-align: center;
-            margin: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-section::before {
-            content: '🌳';
-            position: absolute;
-            font-size: 250px;
-            opacity: 0.05;
-            bottom: -50px;
-            left: -50px;
-            pointer-events: none;
-            animation: float 10s ease infinite;
-        }
-
-        .story-section::after {
-            content: '☕';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            top: -30px;
-            right: -30px;
-            pointer-events: none;
-            animation: float 8s ease infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            margin: 40px 0 20px;
         }
 
         .story-content h2 {
             font-family: 'Amiri', serif;
-            font-size: 3rem;
+            font-size: 1.8rem;
             color: var(--accent);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .story-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 20px;
+            color: var(--bg);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
 
         .highlight {
@@ -437,15 +296,43 @@
             font-weight: 700;
         }
 
+        /* Toast - منسق للجوال */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 16px;
+            right: 16px;
+            background: var(--primary);
+            color: var(--accent-light);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            z-index: 1000;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+        }
+
+        .toast i {
+            margin-left: 8px;
+            color: #10B981;
+        }
+
         /* زر العودة للأعلى */
         .scroll-top {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            right: 20px;
             background: var(--accent);
             color: var(--primary);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -453,11 +340,11 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: 0.3s;
+            transition: 0.2s;
             box-shadow: var(--shadow-md);
-            z-index: 999;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            z-index: 999;
         }
 
         .scroll-top.show {
@@ -465,155 +352,82 @@
             visibility: visible;
         }
 
-        .scroll-top:hover {
-            transform: translateY(-3px);
-            background: var(--accent-dark);
-            color: var(--white);
+        .scroll-top:active {
+            transform: scale(0.9);
         }
 
         /* فوتر */
         footer {
             background: var(--primary-dark);
             color: var(--accent-light);
-            padding: 50px 20px;
+            padding: 35px 20px;
             text-align: center;
+            margin-top: 20px;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .social-links a {
             color: var(--accent-light);
-            font-size: 1.5rem;
-            transition: 0.3s;
-            display: inline-block;
+            font-size: 1.3rem;
+            transition: 0.2s;
         }
 
-        .social-links a:hover {
+        .social-links a:active {
             color: var(--accent);
-            transform: translateY(-3px) scale(1.1);
+            transform: scale(1.1);
         }
 
         footer p {
+            font-size: 0.75rem;
             opacity: 0.8;
         }
 
-        /* أنيميشن */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* تحسينات التجاوب */
-        @media (max-width: 768px) {
+        /* شاشات أكبر من جوال */
+        @media (min-width: 768px) {
             .container {
-                padding: 40px 15px;
-            }
-            
-            .section-header h2 {
-                font-size: 2.2rem;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 50px 20px;
             }
             
             .items-grid {
-                gap: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
             
-            nav {
-                gap: 20px;
-                padding: 12px 15px;
-            }
-            
-            nav a {
-                font-size: 0.85rem;
-            }
-            
-            nav a i {
-                display: none;
-            }
-            
-            .story-section {
-                padding: 50px 20px;
-                border-radius: 30px;
-                margin: 40px 0;
-            }
-            
-            .story-content h2 {
-                font-size: 2rem;
-            }
-            
-            .story-content p {
-                font-size: 1rem;
+            .image-wrapper {
+                height: 220px;
             }
             
             .toast {
-                bottom: 80px;
-                right: 15px;
-                left: 15px;
-                text-align: center;
-                transform: translateY(100px);
-            }
-            
-            .toast.show {
-                transform: translateY(0);
+                left: auto;
+                right: 20px;
+                max-width: 350px;
+                text-align: right;
             }
         }
 
-        @media (max-width: 480px) {
-            header {
-                padding: 60px 15px;
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1100px;
             }
             
-            .brand-logo {
-                gap: 10px;
-            }
-            
-            .icon-svg {
-                width: 40px;
-            }
-            
-            nav {
-                gap: 12px;
-            }
-            
-            .item-header h3 {
-                font-size: 1.1rem;
-            }
-            
-            .price-badge {
-                font-size: 0.8rem;
-                padding: 4px 12px;
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        /* تحسين إمكانية الوصول */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
+        /* تحسين للطباعة */
         @media print {
-            .scroll-top, nav, .order-btn, .social-links {
+            nav, .scroll-top, .order-btn {
                 display: none;
-            }
-            
-            .item-card {
-                break-inside: avoid;
             }
         }
     </style>
@@ -637,7 +451,7 @@
     <a href="#about"><i class="fas fa-tree"></i> قصتنا</a>
 </nav>
 
-<div class="container">
+<main class="container">
     
     <section id="coffee">
         <div class="section-header">
@@ -654,7 +468,7 @@
                         <h3>قهوة اليوم (حار)</h3>
                         <span class="price-badge">10 ر.س</span>
                     </div>
-                    <p>كوب دافئ يُحضر يومياً من أجود المحاصيل الموسمية المختارة بعناية.</p>
+                    <p>كوب دافئ يُحضر يومياً من أجود المحاصيل الموسمية.</p>
                     <button class="order-btn" data-item="قهوة اليوم حار">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -670,7 +484,7 @@
                         <h3>قهوة اليوم (بارد)</h3>
                         <span class="price-badge">12 ر.س</span>
                     </div>
-                    <p>استخلاص بطيء يمنحك انتعاشاً صافياً في كل رشفة، مثالية لأجواء الصيف.</p>
+                    <p>استخلاص بطيء يمنحك انتعاشاً صافياً في كل رشفة.</p>
                     <button class="order-btn" data-item="قهوة اليوم بارد">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -687,7 +501,7 @@
                         <h3>V60 (حار)</h3>
                         <span class="price-badge">15 ر.س</span>
                     </div>
-                    <p>تحضير يدوي دقيق يبرز النوتات العطرية والفاكهية للمحصول.</p>
+                    <p>تحضير يدوي دقيق يبرز النوتات العطرية والفاكهية.</p>
                     <button class="order-btn" data-item="V60 حار">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -712,7 +526,7 @@
         </div>
     </section>
 
-    <section id="sweets" style="margin-top: 80px;">
+    <section id="sweets" style="margin-top: 50px;">
         <div class="section-header">
             <h2>ركن الحلا</h2>
         </div>
@@ -727,7 +541,7 @@
                         <h3>كوكيز Tree</h3>
                         <span class="price-badge">12 ر.س</span>
                     </div>
-                    <p>مخبوز بحب، مقرمش من الأطراف وطري من الداخل بقطع الشوكولاتة البلجيكية.</p>
+                    <p>مخبوز بحب، مقرمش من الأطراف وطري من الداخل.</p>
                     <button class="order-btn" data-item="كوكيز Tree">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -743,7 +557,7 @@
                         <h3>كرسبي</h3>
                         <span class="price-badge">14 ر.س</span>
                     </div>
-                    <p>توليفة مقرمشة مغطاة بطبقة غنية من الشوكولاتة البلجيكية.</p>
+                    <p>توليفة مقرمشة مغطاة بطبقة غنية من الشوكولاتة.</p>
                     <button class="order-btn" data-item="كرسبي">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -760,7 +574,7 @@
                         <h3>براوني</h3>
                         <span class="price-badge">13 ر.س</span>
                     </div>
-                    <p>تجربة غنية ومكثفة من الشوكولاتة الداكنة التي تذوب في الفم.</p>
+                    <p>تجربة غنية ومكثفة من الشوكولاتة الداكنة.</p>
                     <button class="order-btn" data-item="براوني">
                         <i class="fas fa-shopping-cart"></i> اطلب الآن
                     </button>
@@ -774,10 +588,11 @@
             <h2>جذورنا.. حكايتنا 🌳</h2>
             <p>في <span class="highlight">Tree</span>، نحن لا نقدم مجرد كوب قهوة، بل نزرع تجربة تبدأ من <span class="highlight">الجذور</span>. استلهمنا اسمنا من ثبات الأشجار وعطائها المستمر، لنكون وجهتك الهادئة وسط صخب الحياة.</p>
             <p>نؤمن بأن التفاصيل الصغيرة هي ما يصنع الفارق؛ من اختيار حبة البن بعناية، إلى التحميص بحرفية، وصولاً إلى كوبك الذي يحمل قصة <span class="highlight">نمو وشغف</span> لا ينتهي.</p>
-            <p style="font-style: italic; opacity: 0.9;">✨ "أهلاً بك في ظلال Tree، حيث لكل رشفة أصل." ✨</p>
+            <p style="font-style: italic;">✨ "أهلاً بك في ظلال Tree، حيث لكل رشفة أصل." ✨</p>
         </div>
     </section>
-</div>
+
+</main>
 
 <footer>
     <div class="social-links">
@@ -786,7 +601,7 @@
         <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>© 2026 Tree Specialty Coffee | جميع الحقوق محفوظة</p>
-    <p style="margin-top: 10px; font-size: 0.75rem;">📍 الرياض - شارع العليا | 📞 +966 12 345 6789</p>
+    <p style="margin-top: 8px;">📍 الرياض - شارع العليا | 📞 +966 12 345 6789</p>
 </footer>
 
 <button class="scroll-top" id="scrollTopBtn" aria-label="العودة للأعلى">
@@ -799,102 +614,49 @@
 </div>
 
 <script>
-    // Toast notification system
-    const toast = document.getElementById('toast');
+    // Toast notification
+    const toastEl = document.getElementById('toast');
     
     function showToast(itemName) {
-        const toastSpan = toast.querySelector('span');
+        const toastSpan = toastEl.querySelector('span');
         toastSpan.textContent = `✨ تم إضافة ${itemName} إلى السلة ✨`;
-        toast.classList.add('show');
-        
+        toastEl.classList.add('show');
         setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
+            toastEl.classList.remove('show');
+        }, 2000);
     }
     
-    // Add to cart functionality for all order buttons
+    // Order buttons
     document.querySelectorAll('.order-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const itemName = this.getAttribute('data-item');
+            const itemName = btn.getAttribute('data-item');
             showToast(itemName);
-            
-            // Add haptic feedback if supported
-            if (window.navigator && window.navigator.vibrate) {
-                window.navigator.vibrate(50);
-            }
         });
     });
     
-    // Scroll to top button
+    // Scroll to top
     const scrollBtn = document.getElementById('scrollTopBtn');
-    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollBtn.classList.add('show');
-        } else {
-            scrollBtn.classList.remove('show');
-        }
+        scrollBtn.classList.toggle('show', window.scrollY > 300);
     });
-    
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.item-card, .story-section').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-    
-    // Smooth scroll for navigation links
+    // Smooth scroll for nav
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 const navHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navHeight;
-                
                 window.scrollTo({
-                    top: targetPosition,
+                    top: target.offsetTop - navHeight,
                     behavior: 'smooth'
                 });
             }
         });
-    });
-    
-    // Add loading state for images
-    document.querySelectorAll('.image-wrapper img').forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        if (img.complete) {
-            img.style.opacity = '1';
-        } else {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.3s ease';
-        }
     });
 </script>
 
