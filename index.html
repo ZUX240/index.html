@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Tree Coffee - قهوة مختصة وحلويات فاخرة في أجواء هادئة مستوحاة من الطبيعة">
+    <meta name="description" content="Tree Coffee - قهوة مختصة وحلويات فاخرة في أجواء هادئة">
     <meta name="theme-color" content="#1A3D2F">
     <title>Tree Coffee | قهوة مختصة</title>
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -21,20 +20,18 @@
             --deep-green: #1A3D2F;
             --wood: #B87B4A;
             --beige: #F5EFE6;
-            --beige-dark: #E6D5C3;
-            --cream: #FFF9F0;
+            --beige-soft: #F8F1E8;
             --accent-gold: #C4A77D;
-            --white: #FFFFFF;
-            --dark-text: #2C2C2C;
-            --shadow-sm: 0 4px 10px rgba(26, 61, 47, 0.06);
-            --shadow-md: 0 8px 20px rgba(26, 61, 47, 0.1);
+            --cream: #FFF9F0;
+            --shadow-sm: 0 4px 12px rgba(26, 61, 47, 0.05);
+            --shadow-md: 0 8px 20px rgba(26, 61, 47, 0.08);
         }
 
         body {
             font-family: 'Noto Sans Arabic', sans-serif;
             background-color: var(--beige);
             color: var(--deep-green);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* سكرول ناعم */
@@ -42,17 +39,17 @@
             width: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--beige-dark);
+            background: #E6D5C3;
         }
         ::-webkit-scrollbar-thumb {
             background: var(--wood);
             border-radius: 10px;
         }
 
-        /* الهيدر الرئيسي */
+        /* الهيدر - بدون أي شعار، اسم فقط */
         .hero {
             background: linear-gradient(120deg, var(--deep-green) 0%, #0F2A1F 100%);
-            padding: 50px 20px 45px;
+            padding: 55px 20px 50px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -79,29 +76,24 @@
             pointer-events: none;
         }
 
+        /* فقط اسم الكوفي - بدون شعار، خط مريح وواضح */
         .brand {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 12px;
+            align-items: center;
             margin-bottom: 12px;
             position: relative;
             z-index: 2;
         }
 
-        /* شعار جديد: حبة بن قهوة على شكل ورقة شجر (svg مخصص) */
-        .coffee-leaf-icon {
-            width: 52px;
-            height: 52px;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
-        }
-
         .brand h1 {
             font-family: 'Amiri', serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--cream);
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: 500;
+            line-height: 1.2;
         }
 
         .hero p {
@@ -149,11 +141,12 @@
             transform: scale(0.96);
         }
 
-        /* حاوية رئيسية */
+        /* حاوية رئيسية - خلفية بيج بالكامل */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 36px 16px;
+            background-color: var(--beige);
         }
 
         /* عناوين الأقسام */
@@ -183,7 +176,7 @@
             border-radius: 4px;
         }
 
-        /* شبكة البطاقات - مصغرة ومناسبة للجوال */
+        /* شبكة البطاقات - مصغرة ومناسبة للجوال، بخلفية كريمية */
         .products-grid {
             display: flex;
             flex-direction: column;
@@ -204,7 +197,6 @@
             gap: 12px;
         }
 
-        /* تصغير مساحة الصورة وجعلها دائرية صغيرة */
         .card-img {
             width: 80px;
             height: 80px;
@@ -224,10 +216,6 @@
 
         .coffee-card:active .card-img img {
             transform: scale(0.97);
-        }
-
-        .badge-tag {
-            display: none; /* إخفاء البادج لتصغير البطاقة وجعلها أنظف */
         }
 
         .card-content {
@@ -271,17 +259,60 @@
             overflow: hidden;
         }
 
-        /* إزالة زر الطلب بالكامل */
-        .order-button {
-            display: none;
+        /* قسم "شاركونا لحظاتكم" - تحت الحلا مباشرة */
+        .share-moment {
+            background: linear-gradient(135deg, #EADBC6, #F2E8DD);
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            margin: 48px 0 20px;
+            border: 1px solid rgba(184, 123, 74, 0.4);
+            box-shadow: var(--shadow-sm);
         }
 
-        /* تنسيق خاص للحلويات - نفس النمط المصغر */
-        .sweets-section {
-            margin-top: 48px;
+        .share-moment h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.7rem;
+            color: var(--deep-green);
+            margin-bottom: 12px;
         }
 
-        /* قسم قصتنا - بدون تغيير كبير لكن متناسق */
+        .share-moment p {
+            color: #4A3A2A;
+            font-size: 0.85rem;
+            margin-bottom: 22px;
+        }
+
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--deep-green);
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            color: var(--cream);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.2s;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--wood);
+        }
+
+        .instagram-btn i:first-child {
+            font-size: 1.4rem;
+            color: #E4405F;
+            background: white;
+            border-radius: 50%;
+            padding: 4px;
+        }
+
+        .instagram-btn:active {
+            transform: scale(0.96);
+            background: #0F261D;
+        }
+
+        /* قسم قصتنا */
         .story-block {
             background: linear-gradient(125deg, var(--deep-green), #0F2A1F);
             border-radius: 32px;
@@ -310,29 +341,6 @@
         .highlight {
             color: var(--accent-gold);
             font-weight: 700;
-        }
-
-        /* توست صغير (لإشعارات إن وجدت لكن بدون أزرار طلب لن تظهر) - احتفظت بها تحسباً لأي تفاعل مستقبلي */
-        .toast-notify {
-            position: fixed;
-            bottom: 20px;
-            left: 16px;
-            right: 16px;
-            background: var(--deep-green);
-            color: var(--beige);
-            padding: 10px 16px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 0.75rem;
-            z-index: 1100;
-            transform: translateY(100px);
-            transition: transform 0.25s ease;
-            box-shadow: var(--shadow-md);
-            border-right: 4px solid var(--wood);
-            pointer-events: none;
-        }
-        .toast-notify.show {
-            transform: translateY(0);
         }
 
         /* زر العودة للأعلى */
@@ -367,13 +375,13 @@
             transform: scale(0.92);
         }
 
-        /* فوتر */
+        /* فوتر - بدون معلومات موقع */
         footer {
             background: #0F261D;
             color: #D9C5A6;
             padding: 30px 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             border-top: 2px solid var(--wood);
         }
 
@@ -400,7 +408,7 @@
             opacity: 0.85;
         }
 
-        /* تحسين عرض الشاشات المتوسطة والكبيرة (للبطاقات تبقى بشكل أفقي مصغر) */
+        /* تحسينات للشاشات المتوسطة والكبيرة */
         @media (min-width: 520px) {
             .products-grid {
                 gap: 20px;
@@ -426,7 +434,6 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 22px;
             }
-            /* في التابلت، البطاقة تبقى افقية مصغرة لكن بعرض اكبر قليلاً */
             .coffee-card {
                 padding: 12px 14px;
             }
@@ -436,6 +443,9 @@
             }
             .story-block h2 {
                 font-size: 2rem;
+            }
+            .share-moment h3 {
+                font-size: 1.9rem;
             }
         }
 
@@ -448,23 +458,19 @@
                 width: 100px;
                 height: 100px;
             }
-            .coffee-card {
-                transition: transform 0.2s, box-shadow 0.2s;
-            }
             .coffee-card:hover {
                 transform: translateY(-3px);
                 box-shadow: var(--shadow-md);
             }
+            .instagram-btn:hover {
+                background: #0F261D;
+                transform: translateY(-2px);
+            }
         }
 
-        /* تحسين للجوال الصغير جداً */
         @media (max-width: 420px) {
             .brand h1 {
                 font-size: 2.4rem;
-            }
-            .coffee-leaf-icon {
-                width: 42px;
-                height: 42px;
             }
             .card-img {
                 width: 70px;
@@ -484,40 +490,27 @@
             .story-block h2 {
                 font-size: 1.5rem;
             }
-            .story-block p {
-                font-size: 0.8rem;
+            .share-moment h3 {
+                font-size: 1.4rem;
             }
-        }
-
-        /* إزالة أي تأثيرات غير مرغوب فيها */
-        button, .order-button {
-            display: none;
-        }
-        /* التأكد من عدم وجود أي أزرار طلب */
-        .no-order {
-            display: none;
+            .instagram-btn {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر مع شعار حبة بن قهوة بشكل ورقة شجر (بدلاً من الشعار القديم) -->
+    <!-- الهيدر: فقط اسم Tree Coffee بدون أي شعار، خط مريح -->
     <div class="hero">
         <div class="brand">
-            <!-- SVG جديد: حبة بن قهوة مصممة كورقة شجر (coffee bean + leaf vibe) -->
-            <svg class="coffee-leaf-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 12C35 12 22 24 22 39C22 54 32 67 47 72C62 67 72 54 72 39C72 24 59 12 50 12Z" fill="#C4A77D" stroke="#8B5E3C" stroke-width="1.2"/>
-                <path d="M49 26L44 45L49 43L47 58L53 58L51 43L56 45L51 26H49Z" fill="#1A3D2F" opacity="0.9"/>
-                <path d="M60 22L72 16L68 26L60 22Z" fill="#B87B4A" opacity="0.7"/>
-                <path d="M38 23L27 17L31 27L38 23Z" fill="#B87B4A" opacity="0.7"/>
-                <circle cx="50" cy="38" r="3" fill="#D9C5A6" opacity="0.5"/>
-            </svg>
             <h1>Tree Coffee</h1>
         </div>
-        <p>قهوة مختصة · جذور عريقة · طعم مستدام</p>
+        <p>نحن لا نبيع مجرد قهوة نحن نبيع "تجربة"</p>
     </div>
 
-    <!-- ناف بار -->
+    <!-- ناف بار التنقل -->
     <div class="nav-bar">
         <a href="#coffee-menu"><i class="fas fa-mug-hot"></i> القهوة</a>
         <a href="#sweets-menu"><i class="fas fa-cake-candles"></i> الحلا</a>
@@ -525,13 +518,13 @@
     </div>
 
     <main class="container">
-        <!-- قسم القهوة – أربعة منتجات (بدون زر طلب وبطاقات مصغرة) -->
+        <!-- قسم القهوة – 4 منتجات -->
         <section id="coffee-menu">
             <div class="section-title">
                 <h2>قائمتنا للقهوة</h2>
             </div>
             <div class="products-grid">
-                <!-- 1. قهوة اليوم حارة -->
+                <!-- قهوة اليوم حارة -->
                 <div class="coffee-card">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop" alt="قهوة اليوم ساخنة" loading="lazy">
@@ -544,7 +537,7 @@
                         <p class="desc">تحضير يومي من أجود الحبوب، نكهة كراميل ومكسرات دافئة.</p>
                     </div>
                 </div>
-                <!-- 2. قهوة اليوم باردة -->
+                <!-- قهوة اليوم باردة -->
                 <div class="coffee-card">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&h=200&fit=crop" alt="قهوة اليوم مثلجة" loading="lazy">
@@ -557,7 +550,7 @@
                         <p class="desc">مثلجة بطريقة التقطير البطيء، حموضة متوازية وانتعاش نقي.</p>
                     </div>
                 </div>
-                <!-- 3. V60 حار -->
+                <!-- V60 حار -->
                 <div class="coffee-card">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200&h=200&fit=crop" alt="تحضير V60 ساخن" loading="lazy">
@@ -570,7 +563,7 @@
                         <p class="desc">صبيب يدوي بنوتات فواكه حمراء وزهرية، قوام حريري مثالي.</p>
                     </div>
                 </div>
-                <!-- 4. V60 بارد -->
+                <!-- V60 بارد -->
                 <div class="coffee-card">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop" alt="V60 بارد" loading="lazy">
@@ -586,15 +579,15 @@
             </div>
         </section>
 
-        <!-- قسم الحلا (بدون أزرار طلب، بطاقات مصغرة بنفس النمط) -->
-        <section id="sweets-menu" class="sweets-section">
+        <!-- قسم الحلا -->
+        <section id="sweets-menu">
             <div class="section-title">
                 <h2>ركن الحلا</h2>
             </div>
             <div class="products-grid">
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop" alt="كوكيز محضرة" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop" alt="كوكيز" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -606,7 +599,7 @@
                 </div>
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop" alt="حلوى كرسبي" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop" alt="كرسبي" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -618,7 +611,7 @@
                 </div>
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop" alt="براوني فاج" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop" alt="براوني" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -631,7 +624,18 @@
             </div>
         </section>
 
-        <!-- قصتنا -->
+        <!-- قسم "شاركونا لحظاتكم" مع رابط انستقرام مباشر (دايركت) -->
+        <div class="share-moment">
+            <h3>📸 شاركونا لحظاتكم</h3>
+            <p>صوّر قهوتك المفضلة أو قطعة الحلا وشاركها على انستقرام، ونحن نعيد نشر أجمل اللحظات.</p>
+            <a href="https://www.instagram.com/treecoffee/" target="_blank" rel="noopener noreferrer" class="instagram-btn">
+                <i class="fab fa-instagram"></i>
+                تواصل معنا عبر الإنستقرام
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <!-- قصتنا (بدون أي إشارة للموقع الجغرافي) -->
         <section id="our-story">
             <div class="story-block">
                 <h2>🌳 جذور Tree · حكاية القهوة</h2>
@@ -644,23 +648,16 @@
 
     <footer>
         <div class="social-icons">
-            <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/treecoffee/" target="_blank" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
             <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p>© 2026 Tree Coffee · جميع الحقوق محفوظة</p>
-        <p style="margin-top: 6px; font-size: 0.7rem;">📍 الرياض – شارع العليا | ☎ +966 12 345 6789</p>
     </footer>
 
     <button class="go-top" id="goTopBtn" aria-label="للأعلى">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- toast مخفي لكنه موجود (لن يظهر لأنه لا توجد أزرار طلب) -->
-    <div id="cartToast" class="toast-notify">
-        <i class="fas fa-check-circle"></i>
-        <span></span>
-    </div>
 
     <script>
         // زر العودة للأعلى
@@ -676,7 +673,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // تمرير سلس للروابط في الناف بار مع مراعاة ارتفاع الناف
+        // تمرير سلس للروابط
         const navLinks = document.querySelectorAll('.nav-bar a');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -694,8 +691,8 @@
             });
         });
 
-        // تأثير ظهور خفيف للبطاقات (تجربة بصرية لطيفة)
-        const cards = document.querySelectorAll('.coffee-card, .story-block');
+        // تأثير ظهور بطيء للبطاقات
+        const animatedElements = document.querySelectorAll('.coffee-card, .story-block, .share-moment');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -706,11 +703,11 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -10px 0px' });
         
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(12px)';
-            card.style.transition = 'opacity 0.35s ease, transform 0.3s ease';
-            observer.observe(card);
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(12px)';
+            el.style.transition = 'opacity 0.4s ease, transform 0.3s ease';
+            observer.observe(el);
         });
     </script>
 </body>
