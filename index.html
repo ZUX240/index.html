@@ -46,7 +46,7 @@
             border-radius: 10px;
         }
 
-        /* الهيدر - بدون أي شعار، اسم فقط */
+        /* الهيدر */
         .hero {
             background: linear-gradient(120deg, var(--deep-green) 0%, #0F2A1F 100%);
             padding: 55px 20px 50px;
@@ -76,7 +76,6 @@
             pointer-events: none;
         }
 
-        /* فقط اسم الكوفي - بدون شعار، خط مريح وواضح */
         .brand {
             display: flex;
             justify-content: center;
@@ -129,6 +128,7 @@
             align-items: center;
             gap: 6px;
             padding: 4px 0;
+            cursor: pointer;
         }
 
         .nav-bar a i {
@@ -141,7 +141,7 @@
             transform: scale(0.96);
         }
 
-        /* حاوية رئيسية - خلفية بيج بالكامل */
+        /* حاوية رئيسية */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -176,7 +176,7 @@
             border-radius: 4px;
         }
 
-        /* شبكة البطاقات - مصغرة ومناسبة للجوال، بخلفية كريمية */
+        /* شبكة البطاقات */
         .products-grid {
             display: flex;
             flex-direction: column;
@@ -195,6 +195,7 @@
             align-items: center;
             padding: 10px 12px;
             gap: 12px;
+            cursor: pointer;
         }
 
         .card-img {
@@ -259,7 +260,7 @@
             overflow: hidden;
         }
 
-        /* قسم "شاركونا لحظاتكم" - تحت الحلا مباشرة */
+        /* قسم شاركونا لحظاتكم */
         .share-moment {
             background: linear-gradient(135deg, #EADBC6, #F2E8DD);
             border-radius: 28px;
@@ -297,6 +298,7 @@
             transition: 0.2s;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--wood);
+            cursor: pointer;
         }
 
         .instagram-btn i:first-child {
@@ -347,7 +349,7 @@
         .go-top {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px; /* تغيير إلى اليسار ليتناسب مع RTL */
             background: var(--wood);
             color: var(--cream);
             width: 42px;
@@ -375,7 +377,7 @@
             transform: scale(0.92);
         }
 
-        /* فوتر - بدون معلومات موقع */
+        /* فوتر */
         footer {
             background: #0F261D;
             color: #D9C5A6;
@@ -396,6 +398,7 @@
             color: #D9C5A6;
             font-size: 1.3rem;
             transition: 0.2s;
+            text-decoration: none;
         }
 
         .social-icons a:active {
@@ -406,6 +409,27 @@
         footer p {
             font-size: 0.7rem;
             opacity: 0.85;
+        }
+
+        /* زر الطلب */
+        .order-btn {
+            background: transparent;
+            border: 1px solid var(--wood);
+            color: var(--deep-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-top: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .order-btn:active {
+            background: var(--wood);
+            color: white;
         }
 
         /* تحسينات للشاشات المتوسطة والكبيرة */
@@ -466,6 +490,10 @@
                 background: #0F261D;
                 transform: translateY(-2px);
             }
+            .order-btn:hover {
+                background: var(--wood);
+                color: white;
+            }
         }
 
         @media (max-width: 420px) {
@@ -502,7 +530,7 @@
 </head>
 <body>
 
-    <!-- الهيدر: فقط اسم Tree Coffee بدون أي شعار، خط مريح -->
+    <!-- الهيدر -->
     <div class="hero">
         <div class="brand">
             <h1>Tree Coffee</h1>
@@ -512,13 +540,13 @@
 
     <!-- ناف بار التنقل -->
     <div class="nav-bar">
-        <a href="#coffee-menu"><i class="fas fa-mug-hot"></i> القهوة</a>
-        <a href="#sweets-menu"><i class="fas fa-cake-candles"></i> الحلا</a>
-        <a href="#our-story"><i class="fas fa-tree"></i> قصتنا</a>
+        <a href="#coffee-menu" data-target="coffee-menu"><i class="fas fa-mug-hot"></i> القهوة</a>
+        <a href="#sweets-menu" data-target="sweets-menu"><i class="fas fa-cake-candles"></i> الحلا</a>
+        <a href="#our-story" data-target="our-story"><i class="fas fa-tree"></i> قصتنا</a>
     </div>
 
     <main class="container">
-        <!-- قسم القهوة – 4 منتجات -->
+        <!-- قسم القهوة -->
         <section id="coffee-menu">
             <div class="section-title">
                 <h2>قائمتنا للقهوة</h2>
@@ -527,7 +555,10 @@
                 <!-- قهوة اليوم حارة -->
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop" alt="قهوة اليوم ساخنة" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop" 
+                             srcset="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="قهوة اليوم ساخنة" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -535,12 +566,18 @@
                             <span class="price">10 ر.س</span>
                         </div>
                         <p class="desc">تحضير يومي من أجود الحبوب، نكهة كراميل ومكسرات دافئة.</p>
+                        <button class="order-btn" onclick="alert('✨ تم إضافة قهوة اليوم حار إلى سلة الطلبات ✨')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
                 <!-- قهوة اليوم باردة -->
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&h=200&fit=crop" alt="قهوة اليوم مثلجة" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="قهوة اليوم مثلجة" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -548,12 +585,18 @@
                             <span class="price">12 ر.س</span>
                         </div>
                         <p class="desc">مثلجة بطريقة التقطير البطيء، حموضة متوازية وانتعاش نقي.</p>
+                        <button class="order-btn" onclick="alert('✨ تم إضافة قهوة اليوم بارد إلى سلة الطلبات ✨')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
                 <!-- V60 حار -->
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200&h=200&fit=crop" alt="تحضير V60 ساخن" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="تحضير V60 ساخن" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -561,12 +604,18 @@
                             <span class="price">15 ر.س</span>
                         </div>
                         <p class="desc">صبيب يدوي بنوتات فواكه حمراء وزهرية، قوام حريري مثالي.</p>
+                        <button class="order-btn" onclick="alert('✨ تم إضافة V60 حار إلى سلة الطلبات ✨')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
                 <!-- V60 بارد -->
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop" alt="V60 بارد" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="V60 بارد" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -574,6 +623,9 @@
                             <span class="price">16 ر.س</span>
                         </div>
                         <p class="desc">استخلاص على البارد يحافظ على النوتات الزهرية، انتعاش طويل.</p>
+                        <button class="order-btn" onclick="alert('✨ تم إضافة V60 بارد إلى سلة الطلبات ✨')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
             </div>
@@ -587,7 +639,10 @@
             <div class="products-grid">
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop" alt="كوكيز" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="كوكيز" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -595,11 +650,17 @@
                             <span class="price">12 ر.س</span>
                         </div>
                         <p class="desc">مقرمش من الخارج وطري بداخله مع شوكولاتة بلجيكية.</p>
+                        <button class="order-btn" onclick="alert('🍪 تم إضافة كوكيز Tree إلى سلة الطلبات 🍪')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop" alt="كرسبي" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="كرسبي" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -607,11 +668,17 @@
                             <span class="price">14 ر.س</span>
                         </div>
                         <p class="desc">مزيج كراميل مملح وشوكولاتة داكنة مع أرز مقرمش.</p>
+                        <button class="order-btn" onclick="alert('🍫 تم إضافة كرسبي إلى سلة الطلبات 🍫')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
                 <div class="coffee-card">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop" alt="براوني" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop"
+                             srcset="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop 200w, https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop 400w"
+                             sizes="(max-width: 480px) 70px, 90px"
+                             alt="براوني" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-header">
@@ -619,12 +686,15 @@
                             <span class="price">13 ر.س</span>
                         </div>
                         <p class="desc">غني بالشوكولاتة الداكنة، يذوب بالفم مع جوز البيكان.</p>
+                        <button class="order-btn" onclick="alert('🍰 تم إضافة براوني إلى سلة الطلبات 🍰')">
+                            <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- قسم "شاركونا لحظاتكم" مع رابط انستقرام مباشر (دايركت) -->
+        <!-- قسم شاركونا لحظاتكم -->
         <div class="share-moment">
             <h3>📸 شاركونا لحظاتكم</h3>
             <p>صوّر قهوتك المفضلة أو قطعة الحلا وشاركها على انستقرام، ونحن نعيد نشر أجمل اللحظات.</p>
@@ -635,7 +705,7 @@
             </a>
         </div>
 
-        <!-- قصتنا (بدون أي إشارة للموقع الجغرافي) -->
+        <!-- قصتنا -->
         <section id="our-story">
             <div class="story-block">
                 <h2>🌳 جذور Tree · حكاية القهوة</h2>
@@ -648,10 +718,13 @@
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/th_8i9?utm_source=qr/" target="_blank" rel="noopener noreferrer" class="instagram-btn">
+            <a href="https://www.instagram.com/th_8i9?utm_source=qr/" target="_blank" rel="noopener noreferrer" aria-label="انستقرام">
                 <i class="fab fa-instagram"></i>
+            </a>
             <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-            <a href="0530049845" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/966530049845" target="_blank" rel="noopener noreferrer" aria-label="واتساب">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
         <p>© 2026 Tree Coffee · جميع الحقوق محفوظة</p>
     </footer>
@@ -674,12 +747,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // تمرير سلس للروابط
+        // تمرير سلس للروابط - تم إصلاحه
         const navLinks = document.querySelectorAll('.nav-bar a');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
+                const targetId = this.getAttribute('data-target');
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     const navHeight = document.querySelector('.nav-bar').offsetHeight;
@@ -702,7 +775,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -10px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
         
         animatedElements.forEach(el => {
             el.style.opacity = '0';
@@ -710,6 +783,19 @@
             el.style.transition = 'opacity 0.4s ease, transform 0.3s ease';
             observer.observe(el);
         });
+
+        // تحسين للجوال: إزالة تأثير hover على اللمس
+        if ('ontouchstart' in window) {
+            const cards = document.querySelectorAll('.coffee-card');
+            cards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        }
     </script>
 </body>
 </html>
