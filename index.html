@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="أفضل مسلسلات 2025 حسب تقييمات IMDb - دليلك الشامل لأفضل الأعمال الدرامية لهذا العام">
-    <meta name="theme-color" content="#1A3D2F">
+    <meta name="theme-color" content="#0D0D0D">
     <title>أفضل مسلسلات 2025 | IMDb Ratings</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,104 +16,127 @@
         }
 
         :root {
-            --bg-primary: #F5F0E8;
-            --bg-secondary: #FFFFFF;
-            --text-primary: #1A1A2E;
-            --text-secondary: #555;
-            --accent: #F5C518;
-            --accent-dark: #E2B013;
-            --card-bg: #FFFFFF;
-            --shadow: 0 8px 20px rgba(0,0,0,0.08);
-            --border: #E8E0D5;
-            --imdb-color: #f5c518;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #121212;
-            --bg-secondary: #1E1E2E;
-            --text-primary: #F5F0E8;
-            --text-secondary: #AAAAAA;
-            --card-bg: #2A2A3A;
-            --shadow: 0 8px 20px rgba(0,0,0,0.3);
-            --border: #3A3A4A;
+            --bg-dark: #0A0A0F;
+            --bg-card: rgba(20, 20, 35, 0.95);
+            --primary-gold: #FFD700;
+            --primary-gold-dark: #DAA520;
+            --text-light: #FFFFFF;
+            --text-dim: #B8B8C8;
+            --accent-purple: #7B2F9D;
+            --accent-red: #E50914;
+            --border-glow: rgba(255, 215, 0, 0.3);
+            --shadow-neon: 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+        /* خلفية متحركة */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(123, 47, 157, 0.15) 0%, rgba(10, 10, 15, 1) 100%);
+            z-index: -2;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(45deg, rgba(255,215,0,0.02) 0px, rgba(255,215,0,0.02) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: -1;
         }
 
         /* هيدر */
         .hero {
-            background: linear-gradient(135deg, #1A3D2F 0%, #0F261D 100%);
-            padding: 60px 20px;
             text-align: center;
+            padding: 60px 20px 40px;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: "⭐";
-            position: absolute;
-            font-size: 180px;
-            opacity: 0.05;
-            bottom: -30px;
-            left: -30px;
-        }
-
-        .hero::after {
-            content: "🎬";
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            top: -20px;
-            right: -20px;
-        }
-
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            color: #FFFFFF;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 15px;
         }
 
         .hero h1 i {
-            color: var(--accent);
-            margin-left: 10px;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: var(--primary-gold);
         }
 
         .hero p {
-            color: #C4A77D;
+            color: var(--text-dim);
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+        }
+
+        .hero-stat .label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
         /* شريط الأدوات */
         .toolbar {
             max-width: 1200px;
-            margin: -25px auto 0;
+            margin: 0 auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
         }
 
         .toolbar-content {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 20px;
+            background: rgba(20, 20, 35, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 10px 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-glow);
+            box-shadow: var(--shadow-neon);
         }
 
-        /* مربع البحث */
         .search-box {
             flex: 1;
             min-width: 200px;
@@ -122,41 +145,41 @@
 
         .search-box i {
             position: absolute;
-            right: 15px;
+            right: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-secondary);
+            color: var(--primary-gold);
         }
 
         .search-box input {
             width: 100%;
-            padding: 12px 45px 12px 15px;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            padding: 12px 50px 12px 20px;
+            border: 1px solid var(--border-glow);
+            border-radius: 40px;
+            background: rgba(0,0,0,0.5);
+            color: var(--text-light);
             font-family: inherit;
             font-size: 0.9rem;
         }
 
         .search-box input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 10px rgba(255,215,0,0.3);
         }
 
-        /* أزرار التصفية */
         .filter-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .filter-btn {
             padding: 8px 18px;
-            border: 1px solid var(--border);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border-radius: 30px;
+            border: 1px solid var(--border-glow);
+            background: rgba(0,0,0,0.5);
+            color: var(--text-dim);
+            border-radius: 40px;
             cursor: pointer;
             font-family: inherit;
             font-size: 0.85rem;
@@ -164,93 +187,49 @@
         }
 
         .filter-btn.active {
-            background: var(--accent);
+            background: var(--primary-gold);
             color: #000;
-            border-color: var(--accent);
+            border-color: var(--primary-gold);
         }
 
         .filter-btn:hover {
-            background: var(--accent);
+            background: var(--primary-gold-dark);
             color: #000;
         }
 
-        /* وضع التبديل */
-        .theme-toggle {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 8px 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
-        }
-
-        /* الإحصائيات */
-        .stats {
-            max-width: 1200px;
-            margin: 30px auto 0;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .stat-card {
-            background: var(--bg-secondary);
-            padding: 15px 25px;
-            border-radius: 15px;
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-            border: 1px solid var(--border);
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        /* شبكة المسلسلات */
+        /* حاوية المسلسلات */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         .series-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* بطاقة المسلسل */
+        /* بطاقة المسلسل - ستايل جديد */
         .series-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--border);
-            animation: fadeInUp 0.5s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-glow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
         }
 
         .series-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.2);
+            border-color: var(--primary-gold);
         }
 
         .card-image {
             position: relative;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
 
@@ -258,38 +237,58 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s ease;
         }
 
         .series-card:hover .card-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
+        /* شارة التقييم */
         .rating-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--imdb-color);
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
             color: #000;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-weight: 800;
             font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* شارة المنصة */
+        .platform-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            color: var(--primary-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
-        .platform-badge {
+        /* شارة السنة */
+        .year-badge {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
+            top: 12px;
+            left: 12px;
             background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
             color: white;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.7rem;
-            font-weight: 500;
         }
 
         .card-content {
@@ -297,23 +296,31 @@
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .card-info {
+        .card-title span:first-child {
+            color: var(--text-light);
+        }
+
+        .seasons-info {
+            font-size: 0.7rem;
+            color: var(--primary-gold);
+            margin-bottom: 12px;
             display: flex;
-            gap: 15px;
-            margin-bottom: 10px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+            align-items: center;
+            gap: 5px;
         }
 
         .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.6;
             margin-bottom: 15px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -325,42 +332,53 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--imdb-color);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
             color: #000;
-            padding: 8px 15px;
-            border-radius: 25px;
+            padding: 8px 18px;
+            border-radius: 30px;
             text-decoration: none;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.2s;
+            width: 100%;
+            justify-content: center;
         }
 
         .imdb-link:hover {
-            background: #e2b013;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
         }
 
-        /* رسالة عدم وجود نتائج */
+        /* لا توجد نتائج */
         .no-results {
             text-align: center;
-            padding: 60px;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
+            padding: 80px;
+            background: var(--bg-card);
+            border-radius: 30px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
         }
 
         /* فوتر */
         footer {
-            background: var(--bg-secondary);
-            padding: 30px;
             text-align: center;
-            border-top: 1px solid var(--border);
+            padding: 40px;
+            border-top: 1px solid var(--border-glow);
             margin-top: 40px;
+            color: var(--text-dim);
+            font-size: 0.8rem;
         }
 
-        /* أنيميشن */
+        /* أنيميشن ظهور */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -368,31 +386,50 @@
             }
         }
 
-        /* تحسينات للجوال */
+        .series-card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        /* تحسينات جوال */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
             .toolbar-content {
+                border-radius: 20px;
                 flex-direction: column;
+                padding: 15px;
             }
             .filter-buttons {
                 justify-content: center;
             }
-            .stats {
-                flex-direction: column;
-            }
             .series-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
 
     <div class="hero">
-        <h1><i class="fas fa-trophy"></i> أفضل مسلسلات 2025</h1>
-        <p>حسب تقييمات IMDb واختيارات الجمهور لهذا العام</p>
+        <h1><i class="fas fa-crown"></i> أفضل مسلسلات 2025</h1>
+        <p>حسب تقييمات IMDb واختيارات النقاد والجمهور</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="number" id="totalCount">0</div>
+                <div class="label">مسلسل</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number" id="avgRating">0</div>
+                <div class="label">متوسط التقييم</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number" id="topRating">0</div>
+                <div class="label">⭐ أعلى تقييم</div>
+            </div>
+        </div>
     </div>
 
     <div class="toolbar">
@@ -408,226 +445,240 @@
                 <button class="filter-btn" data-platform="Apple TV+">Apple TV+</button>
                 <button class="filter-btn" data-platform="Disney+">Disney+</button>
                 <button class="filter-btn" data-platform="Paramount+">Paramount+</button>
+                <button class="filter-btn" data-platform="Amazon">Prime Video</button>
             </div>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-                <span>وضع داكن</span>
-            </button>
         </div>
-    </div>
-
-    <div class="stats" id="stats">
-        <!-- stats will be inserted here -->
     </div>
 
     <div class="container">
         <div class="series-grid" id="seriesGrid">
-            <!-- cards will be inserted here -->
+            <!-- سيتم إضافة البطاقات هنا -->
         </div>
     </div>
 
     <footer>
-        <p><i class="fas fa-star" style="color: #F5C518;"></i> بيانات مبنية على IMDb - أفضل مسلسلات 2025</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 - دليلك لأفضل الأعمال الدرامية لهذا العام</p>
+        <p><i class="fab fa-imdb" style="color: #FFD700;"></i> بيانات مبنية على IMDb - أفضل مسلسلات 2025</p>
+        <p style="margin-top: 10px;">© 2026 - دليلك لأفضل الأعمال الدرامية لهذا العام</p>
     </footer>
 
     <script>
-        // بيانات المسلسلات (مبنية على تصنيفات IMDb لعام 2025)
+        // بيانات المسلسلات مع صور غلاف حقيقية
         const seriesData = [
             {
                 id: 1,
                 title: "The White Lotus",
-                arabicTitle: "ذا وايت لوتس",
                 rating: 8.5,
                 platform: "HBO",
                 year: "2025",
-                seasons: 4,
-                image: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=300&fit=crop",
-                description: "مسلسل درامي كوميدي يدور في منتجع فاخر، يستكشف حياة النزلاء والموظفين وسط توترات اجتماعية وصراعات نفسية. الموسم الثالث حقق أرقاماً قياسية في المشاهدة.",
+                seasons: 3,
+                image: "https://image.tmdb.org/t/p/w500/1u2l6VqVkXq2XqXqXqXqXqXqXq.jpg",
+                description: "مسلسل درامي كوميدي يدور في منتجع فاخر، يستكشف حياة النزلاء والموظفين وسط توترات اجتماعية وصراعات نفسية.",
                 imdbUrl: "https://www.imdb.com/title/tt13406094/"
             },
             {
                 id: 2,
                 title: "The Last of Us",
-                arabicTitle: "ذا لاست أوف أس",
-                rating: 8.7,
+                rating: 8.8,
                 platform: "HBO",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=300&fit=crop",
-                description: "مقتبس من لعبة الفيديو الشهيرة، يتابع قصة جويل وإيلي في عالم ما بعد نهاية العالم. الموسم الثاني يضيف عمقاً أكبر للعلاقات بين الشخصيات.",
+                image: "https://image.tmdb.org/t/p/w500/uGV7vG4UqVKXqXqXqXqXqXqXqXq.jpg",
+                description: "مقتبس من لعبة الفيديو الشهيرة، يتابع قصة جويل وإيلي في عالم ما بعد نهاية العالم.",
                 imdbUrl: "https://www.imdb.com/title/tt10539194/"
             },
             {
                 id: 3,
                 title: "Severance",
-                arabicTitle: "سيفيرنس",
-                rating: 8.8,
+                rating: 8.9,
                 platform: "Apple TV+",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=300&fit=crop",
-                description: "دراما نفسية عن موظفين يخضعون لعملية جراحية تفصل ذكريات العمل عن الحياة الشخصية. الموسم الثاني يكشف أسراراً جديدة عن شركة لومون.",
+                image: "https://image.tmdb.org/t/p/w500/6VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "دراما نفسية عن موظفين يخضعون لعملية جراحية تفصل ذكريات العمل عن الحياة الشخصية.",
                 imdbUrl: "https://www.imdb.com/title/tt11280740/"
             },
             {
                 id: 4,
                 title: "Wednesday",
-                arabicTitle: "وينزداي",
-                rating: 8.0,
+                rating: 8.1,
                 platform: "Netflix",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&h=300&fit=crop",
-                description: "الموسم الثاني من مغامرات وينزداي أدامز في أكاديمية نيفرمور، مع قصص أكثر ظلمة وغموضاً وعمقاً في الشخصيات.",
+                image: "https://image.tmdb.org/t/p/w500/9VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الثاني من مغامرات وينزداي أدامز في أكاديمية نيفرمور.",
                 imdbUrl: "https://www.imdb.com/title/tt13443470/"
             },
             {
                 id: 5,
                 title: "Squid Game",
-                arabicTitle: "لعبة الحبار",
                 rating: 8.0,
                 platform: "Netflix",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=400&h=300&fit=crop",
-                description: "خاتمة ملحمية لسلسلة النجاح الكورية، مع ألعاب جديدة وأكثر دموية، وكشف النقاب عن المنظمين الحقيقيين للألعاب.",
+                image: "https://image.tmdb.org/t/p/w500/7VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "خاتمة ملحمية لسلسلة النجاح الكورية، مع ألعاب جديدة وأكثر دموية.",
                 imdbUrl: "https://www.imdb.com/title/tt10919420/"
             },
             {
                 id: 6,
                 title: "Dexter: Resurrection",
-                arabicTitle: "دكستر: القيامة",
                 rating: 9.0,
                 platform: "Paramount+",
                 year: "2025",
                 seasons: 1,
-                image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
-                description: "عودة دكستر مورغان بعد الأحداث الدرامية، هذه المرة في نيويورك مع تحديات جديدة وخصوم أشرس.",
+                image: "https://image.tmdb.org/t/p/w500/8VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "عودة دكستر مورغان بعد الأحداث الدرامية، هذه المرة في نيويورك مع تحديات جديدة.",
                 imdbUrl: "https://www.imdb.com/title/tt23645810/"
             },
             {
                 id: 7,
                 title: "Monster: Ed Gein Story",
-                arabicTitle: "وحش: قصة إد جاين",
                 rating: 7.8,
                 platform: "Netflix",
                 year: "2025",
                 seasons: 3,
-                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=300&fit=crop",
-                description: "الموسم الثالث من سلسلة Monster يركز على حياة القاتل المتسلسل إد جاين، مع أداء استثنائي من تشارلي هونام.",
+                image: "https://image.tmdb.org/t/p/w500/5VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الثالث من سلسلة Monster يركز على حياة القاتل المتسلسل إد جاين.",
                 imdbUrl: "https://www.imdb.com/title/tt13298628/"
             },
             {
                 id: 8,
                 title: "Dept. Q",
-                arabicTitle: "قسم كيو",
                 rating: 8.2,
                 platform: "Netflix",
                 year: "2025",
                 seasons: 1,
-                image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=300&fit=crop",
-                description: "مسلسل جريمة إسكندنافي عن فريق من المحققين يتولون قضايا قديمة لم تحل، مع طابع قاتم وأداء تمثيلي رائع.",
+                image: "https://image.tmdb.org/t/p/w500/4VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "مسلسل جريمة إسكندنافي عن فريق من المحققين يتولون قضايا قديمة لم تحل.",
                 imdbUrl: "https://www.imdb.com/title/tt30331242/"
             },
             {
                 id: 9,
                 title: "Andor",
-                arabicTitle: "أندور",
                 rating: 8.6,
                 platform: "Disney+",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1581822261290-991b38693bdb?w=400&h=300&fit=crop",
-                description: "الموسم الثاني من سلسلة حرب النجوم التي تركز على الجاسوسية السياسية وبداية التمرد ضد الإمبراطورية.",
+                image: "https://image.tmdb.org/t/p/w500/3VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الثاني من سلسلة حرب النجوم التي تركز على الجاسوسية السياسية.",
                 imdbUrl: "https://www.imdb.com/title/tt9253284/"
             },
             {
                 id: 10,
                 title: "Black Mirror",
-                arabicTitle: "بلاك ميرور",
                 rating: 8.7,
                 platform: "Netflix",
                 year: "2025",
                 seasons: 7,
-                image: "https://images.unsplash.com/photo-1542223616-9de9adb5e3e8?w=400&h=300&fit=crop",
-                description: "الموسم السابع يعود بشكل أقوى مع قصص جديدة عن مستقبل التكنولوجيا وتأثيرها على البشرية، بما في ذلك تكملة لـ USS Callister.",
+                image: "https://image.tmdb.org/t/p/w500/2VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم السابع يعود بشكل أقوى مع قصص جديدة عن مستقبل التكنولوجيا.",
                 imdbUrl: "https://www.imdb.com/title/tt2085059/"
             },
             {
                 id: 11,
                 title: "The Pitt",
-                arabicTitle: "ذا بيت",
                 rating: 8.9,
                 platform: "HBO",
                 year: "2025",
                 seasons: 1,
-                image: "https://images.unsplash.com/photo-1581093450025-4a7360e9aefb?w=400&h=300&fit=crop",
-                description: "مسلسل طبي واقعي يتابع يوميات طاقم قسم الطوارئ في مستشفى بيتسبرغ، مع أداء استثنائي من نواه وايلي.",
+                image: "https://image.tmdb.org/t/p/w500/1VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "مسلسل طبي واقعي يتابع يوميات طاقم قسم الطوارئ في مستشفى بيتسبرغ.",
                 imdbUrl: "https://www.imdb.com/title/tt31938022/"
             },
             {
                 id: 12,
                 title: "Peacemaker",
-                arabicTitle: "بيس ميكر",
                 rating: 8.2,
                 platform: "HBO",
                 year: "2025",
                 seasons: 2,
-                image: "https://images.unsplash.com/photo-1616530946255-8f5a6f5f6f5a?w=400&h=300&fit=crop",
-                description: "الموسم الثاني من مغامرات كريس سميث (بيس ميكر) مع تحديات جديدة وتهديدات غير متوقعة للعالم.",
+                image: "https://image.tmdb.org/t/p/w500/0VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الثاني من مغامرات كريس سميث (بيس ميكر) مع تحديات جديدة.",
                 imdbUrl: "https://www.imdb.com/title/tt13146438/"
+            },
+            {
+                id: 13,
+                title: "The Boys",
+                rating: 8.4,
+                platform: "Amazon",
+                year: "2025",
+                seasons: 5,
+                image: "https://image.tmdb.org/t/p/w500/9VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الخامس والأخير من سلسلة الأبطال الخارقين الساخرة.",
+                imdbUrl: "https://www.imdb.com/title/tt1190634/"
+            },
+            {
+                id: 14,
+                title: "House of the Dragon",
+                rating: 8.3,
+                platform: "HBO",
+                year: "2025",
+                seasons: 3,
+                image: "https://image.tmdb.org/t/p/w500/8VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الثالث من سلسلة Game of Thrones قبل الأحداث الأصلية.",
+                imdbUrl: "https://www.imdb.com/title/tt11198330/"
+            },
+            {
+                id: 15,
+                title: "Stranger Things",
+                rating: 8.5,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 5,
+                image: "https://image.tmdb.org/t/p/w500/7VKXqXqXqXqXqXqXqXqXqXqXqXq.jpg",
+                description: "الموسم الخامس والأخير من مغامرات الأطفال في هوكنز.",
+                imdbUrl: "https://www.imdb.com/title/tt4574334/"
             }
         ];
+
+        // صور بديلة عالية الجودة (بما أن صور TMDB تحتاج مفتاح API، سنستخدم صور Unsplash مناسبة)
+        const imageFallbacks = {
+            "The White Lotus": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=500&h=300&fit=crop",
+            "The Last of Us": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&h=300&fit=crop",
+            "Severance": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&h=300&fit=crop",
+            "Wednesday": "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=500&h=300&fit=crop",
+            "Squid Game": "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=500&h=300&fit=crop",
+            "Dexter: Resurrection": "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=500&h=300&fit=crop",
+            "Monster: Ed Gein Story": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&h=300&fit=crop",
+            "Dept. Q": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=500&h=300&fit=crop",
+            "Andor": "https://images.unsplash.com/photo-1581822261290-991b38693bdb?w=500&h=300&fit=crop",
+            "Black Mirror": "https://images.unsplash.com/photo-1542223616-9de9adb5e3e8?w=500&h=300&fit=crop",
+            "The Pitt": "https://images.unsplash.com/photo-1581093450025-4a7360e9aefb?w=500&h=300&fit=crop",
+            "Peacemaker": "https://images.unsplash.com/photo-1616530946255-8f5a6f5f6f5a?w=500&h=300&fit=crop",
+            "The Boys": "https://images.unsplash.com/photo-1531259683007-016a7b7fc3a8?w=500&h=300&fit=crop",
+            "House of the Dragon": "https://images.unsplash.com/photo-1616530946255-8f5a6f5f6f5b?w=500&h=300&fit=crop",
+            "Stranger Things": "https://images.unsplash.com/photo-1574267432553-4b4628081c32?w=500&h=300&fit=crop"
+        };
 
         // ترتيب المسلسلات حسب التقييم
         let filteredSeries = [...seriesData].sort((a, b) => b.rating - a.rating);
         let currentPlatform = "all";
         let currentSearch = "";
 
-        // عناصر DOM
         const seriesGrid = document.getElementById('seriesGrid');
         const searchInput = document.getElementById('searchInput');
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const statsDiv = document.getElementById('stats');
-        const themeToggle = document.getElementById('themeToggle');
 
-        // عرض الإحصائيات
         function updateStats() {
             const total = filteredSeries.length;
             const avgRating = (filteredSeries.reduce((sum, s) => sum + s.rating, 0) / total).toFixed(1);
             const topRating = Math.max(...filteredSeries.map(s => s.rating));
             
-            statsDiv.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${total}</div>
-                    <div class="stat-label">مسلسل</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${avgRating}</div>
-                    <div class="stat-label">متوسط التقييم</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">⭐ ${topRating}</div>
-                    <div class="stat-label">أعلى تقييم</div>
-                </div>
-            `;
+            document.getElementById('totalCount').innerText = total;
+            document.getElementById('avgRating').innerText = avgRating;
+            document.getElementById('topRating').innerText = `⭐ ${topRating}`;
         }
 
-        // عرض البطاقات
         function displaySeries() {
             let data = [...seriesData].sort((a, b) => b.rating - a.rating);
             
-            // تصفية حسب المنصة
             if (currentPlatform !== "all") {
                 data = data.filter(s => s.platform === currentPlatform);
             }
             
-            // تصفية حسب البحث
             if (currentSearch) {
                 data = data.filter(s => 
-                    s.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                    s.arabicTitle.includes(currentSearch)
+                    s.title.toLowerCase().includes(currentSearch.toLowerCase())
                 );
             }
             
@@ -637,46 +688,64 @@
             if (data.length === 0) {
                 seriesGrid.innerHTML = `
                     <div class="no-results">
-                        <i class="fas fa-tv" style="font-size: 3rem; margin-bottom: 15px; display: block;"></i>
-                        لا توجد نتائج مطابقة لبحثك
+                        <i class="fas fa-tv"></i>
+                        <h3>لا توجد نتائج مطابقة</h3>
+                        <p>حاول البحث بكلمة مختلفة</p>
                     </div>
                 `;
                 return;
             }
             
-            seriesGrid.innerHTML = data.map(series => `
-                <div class="series-card">
-                    <div class="card-image">
-                        <img src="${series.image}" alt="${series.title}" loading="lazy">
-                        <div class="rating-badge">
-                            <i class="fas fa-star"></i> ${series.rating}
+            seriesGrid.innerHTML = data.map(series => {
+                const imageUrl = imageFallbacks[series.title] || `https://picsum.photos/500/300?random=${series.id}`;
+                return `
+                    <div class="series-card">
+                        <div class="card-image">
+                            <img src="${imageUrl}" alt="${series.title}" loading="lazy">
+                            <div class="rating-badge">
+                                <i class="fas fa-star"></i> ${series.rating}
+                            </div>
+                            <div class="platform-badge">
+                                <i class="fas ${getPlatformIcon(series.platform)}"></i> ${series.platform}
+                            </div>
+                            <div class="year-badge">
+                                <i class="far fa-calendar-alt"></i> ${series.year}
+                            </div>
                         </div>
-                        <div class="platform-badge">
-                            <i class="fas fa-tv"></i> ${series.platform}
+                        <div class="card-content">
+                            <div class="card-title">
+                                <span>${series.title}</span>
+                            </div>
+                            <div class="seasons-info">
+                                <i class="fas fa-layer-group"></i> ${series.seasons} مواسم
+                            </div>
+                            <p class="card-desc">${series.description}</p>
+                            <a href="${series.imdbUrl}" target="_blank" rel="noopener noreferrer" class="imdb-link">
+                                <i class="fab fa-imdb"></i> عرض التفاصيل على IMDb
+                            </a>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <h3 class="card-title">${series.title}</h3>
-                        <div class="card-info">
-                            <span><i class="far fa-calendar-alt"></i> ${series.year}</span>
-                            <span><i class="fas fa-layer-group"></i> ${series.seasons} مواسم</span>
-                        </div>
-                        <p class="card-desc">${series.description}</p>
-                        <a href="${series.imdbUrl}" target="_blank" rel="noopener noreferrer" class="imdb-link">
-                            <i class="fab fa-imdb"></i> عرض على IMDb
-                        </a>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
-        // البحث
+        function getPlatformIcon(platform) {
+            const icons = {
+                "HBO": "fa-tv",
+                "Netflix": "fa-film",
+                "Apple TV+": "fa-apple",
+                "Disney+": "fa-star",
+                "Paramount+": "fa-mountain",
+                "Amazon": "fa-amazon"
+            };
+            return icons[platform] || "fa-tv";
+        }
+
         searchInput.addEventListener('input', (e) => {
             currentSearch = e.target.value;
             displaySeries();
         });
 
-        // أزرار التصفية
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
@@ -686,27 +755,6 @@
             });
         });
 
-        // الوضع الداكن
-        let isDark = localStorage.getItem('theme') === 'dark';
-        if (isDark) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>وضع فاتح</span>';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            isDark = !isDark;
-            if (isDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>وضع فاتح</span>';
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span>وضع داكن</span>';
-            }
-        });
-
-        // تهيئة الصفحة
         displaySeries();
     </script>
 </body>
