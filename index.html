@@ -2,912 +2,712 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Tree Coffee - قهوة مختصة وحلويات فاخرة مع سلة تسوق سهلة">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="أفضل مسلسلات 2025 حسب تقييمات IMDb - دليلك الشامل لأفضل الأعمال الدرامية لهذا العام">
     <meta name="theme-color" content="#1A3D2F">
-    <title>Tree Coffee | قهوة مختصة - سلة التسوق</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>أفضل مسلسلات 2025 | IMDb Ratings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            --deep-green: #1A3D2F;
-            --wood: #B87B4A;
-            --beige: #F5EFE6;
-            --accent-gold: #C4A77D;
-            --cream: #FFF9F0;
-            --shadow-sm: 0 4px 12px rgba(26, 61, 47, 0.05);
-            --shadow-md: 0 8px 20px rgba(26, 61, 47, 0.08);
-            --shadow-lg: 0 20px 40px rgba(26, 61, 47, 0.15);
+            --bg-primary: #F5F0E8;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-secondary: #555;
+            --accent: #F5C518;
+            --accent-dark: #E2B013;
+            --card-bg: #FFFFFF;
+            --shadow: 0 8px 20px rgba(0,0,0,0.08);
+            --border: #E8E0D5;
+            --imdb-color: #f5c518;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1E2E;
+            --text-primary: #F5F0E8;
+            --text-secondary: #AAAAAA;
+            --card-bg: #2A2A3A;
+            --shadow: 0 8px 20px rgba(0,0,0,0.3);
+            --border: #3A3A4A;
         }
 
         body {
-            font-family: 'Noto Sans Arabic', sans-serif;
-            background-color: var(--beige);
-            color: var(--deep-green);
-            line-height: 1.55;
-            overflow-x: hidden;
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
         }
 
-        /* سكرول ناعم */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #E6D5C3;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--wood);
-            border-radius: 10px;
-        }
-
-        /* الهيدر */
+        /* هيدر */
         .hero {
-            background: linear-gradient(120deg, var(--deep-green) 0%, #0F2A1F 100%);
-            padding: 55px 20px 50px;
+            background: linear-gradient(135deg, #1A3D2F 0%, #0F261D 100%);
+            padding: 60px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 4px solid var(--wood);
         }
 
         .hero::before {
-            content: "🌿";
+            content: "⭐";
             position: absolute;
-            font-size: 140px;
+            font-size: 180px;
             opacity: 0.05;
-            bottom: -20px;
-            left: -15px;
-            pointer-events: none;
+            bottom: -30px;
+            left: -30px;
         }
 
         .hero::after {
-            content: "☕";
+            content: "🎬";
             position: absolute;
-            font-size: 110px;
-            opacity: 0.04;
-            top: 10px;
-            right: 5px;
-            pointer-events: none;
+            font-size: 150px;
+            opacity: 0.05;
+            top: -20px;
+            right: -20px;
         }
 
-        .brand {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 2;
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 15px;
         }
 
-        .brand h1 {
-            font-family: 'Amiri', serif;
-            font-size: 3.2rem;
-            color: var(--cream);
-            letter-spacing: 1px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            font-weight: 500;
+        .hero h1 i {
+            color: var(--accent);
+            margin-left: 10px;
         }
 
         .hero p {
-            color: var(--accent-gold);
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 2;
+            color: #C4A77D;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* أيقونة السلة في الهيدر */
-        .cart-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.15);
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.2s;
+        /* شريط الأدوات */
+        .toolbar {
+            max-width: 1200px;
+            margin: -25px auto 0;
+            padding: 0 20px;
+            position: relative;
             z-index: 10;
         }
 
-        .cart-icon i {
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--wood);
-            color: white;
-            font-size: 0.65rem;
-            font-weight: bold;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ناف بار */
-        .nav-bar {
-            background: rgba(26, 61, 47, 0.96);
-            backdrop-filter: blur(10px);
-            padding: 12px 16px;
-            display: flex;
-            justify-content: center;
-            gap: 1.8rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--wood);
-        }
-
-        .nav-bar a {
-            text-decoration: none;
-            color: var(--beige);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        .nav-bar a i {
-            color: var(--accent-gold);
-        }
-
-        /* حاوية رئيسية */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 36px 16px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .section-title h2 {
-            font-family: 'Amiri', serif;
-            font-size: 2rem;
-            color: var(--deep-green);
-            display: inline-block;
-            position: relative;
-            padding-bottom: 6px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 55px;
-            height: 2.5px;
-            background: var(--wood);
-        }
-
-        /* شبكة المنتجات */
-        .products-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .coffee-card {
-            background: var(--cream);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(184, 123, 74, 0.2);
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 10px 12px;
-            gap: 12px;
-        }
-
-        .card-img {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
+        .toolbar-content {
+            background: var(--bg-secondary);
             border-radius: 20px;
-            overflow: hidden;
-            background: #EADBC6;
-        }
-
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            flex: 1;
-            padding: 6px 0;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 4px;
-        }
-
-        .card-header h3 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--deep-green);
-        }
-
-        .price {
-            background: var(--deep-green);
-            color: var(--accent-gold);
-            padding: 2px 10px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.7rem;
-        }
-
-        .desc {
-            color: #5A4A3A;
-            font-size: 0.7rem;
-            line-height: 1.4;
-            margin-bottom: 6px;
-        }
-
-        .order-btn {
-            background: transparent;
-            border: 1px solid var(--wood);
-            color: var(--deep-green);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-
-        .order-btn:hover {
-            background: var(--wood);
-            color: white;
-        }
-
-        /* ========== سلة التسوق الجانبية ========== */
-        .cart-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .cart-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            max-width: 400px;
-            height: 100%;
-            background: var(--cream);
-            box-shadow: var(--shadow-lg);
-            z-index: 2001;
-            transform: translateX(-100%);
-            transition: 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .cart-sidebar.active {
-            transform: translateX(0);
-        }
-
-        .cart-header {
             padding: 20px;
-            background: var(--deep-green);
-            color: var(--cream);
             display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
             justify-content: space-between;
             align-items: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
-        .cart-header h3 {
-            font-family: 'Amiri', serif;
-            font-size: 1.5rem;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: var(--accent-gold);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .cart-items {
+        /* مربع البحث */
+        .search-box {
             flex: 1;
-            overflow-y: auto;
-            padding: 15px;
+            min-width: 200px;
+            position: relative;
         }
 
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: white;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(184, 123, 74, 0.2);
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
         }
 
-        .cart-item-img {
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .cart-item-img img {
+        .search-box input {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-info h4 {
+            padding: 12px 45px 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
             font-size: 0.9rem;
-            margin-bottom: 4px;
         }
 
-        .cart-item-price {
-            font-size: 0.75rem;
-            color: var(--wood);
-            font-weight: 600;
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
-        .cart-item-actions {
+        /* أزرار التصفية */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        .filter-btn:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* وضع التبديل */
+        .theme-toggle {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 8px 15px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--text-primary);
         }
 
-        .cart-item-actions button {
-            background: var(--beige);
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--deep-green);
-        }
-
-        .cart-item-qty {
-            font-weight: 600;
-            min-width: 25px;
-            text-align: center;
-        }
-
-        .delete-item {
-            background: none !important;
-            color: #e74c3c !important;
-        }
-
-        .cart-footer {
-            padding: 20px;
-            border-top: 2px solid var(--wood);
-            background: var(--cream);
-        }
-
-        .cart-total {
+        /* الإحصائيات */
+        .stats {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .checkout-btn {
-            width: 100%;
-            background: var(--deep-green);
-            color: var(--accent-gold);
-            border: none;
-            padding: 12px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-
-        .checkout-btn:hover {
-            background: #0F261D;
-        }
-
-        .empty-cart {
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 15px 25px;
+            border-radius: 15px;
             text-align: center;
-            padding: 40px;
-            color: var(--wood);
+            flex: 1;
+            min-width: 120px;
+            border: 1px solid var(--border);
         }
 
-        /* قصتنا */
-        .story-block {
-            background: linear-gradient(125deg, var(--deep-green), #0F2A1F);
-            border-radius: 32px;
-            padding: 36px 20px;
-            margin: 48px 0 20px;
-            text-align: center;
-        }
-
-        .story-block h2 {
-            font-family: 'Amiri', serif;
+        .stat-number {
             font-size: 1.8rem;
-            color: var(--accent-gold);
-            margin-bottom: 16px;
+            font-weight: 800;
+            color: var(--accent);
         }
 
-        .story-block p {
-            color: #F5EFE6;
-            font-size: 0.85rem;
-            line-height: 1.65;
-            max-width: 650px;
-            margin: 0 auto 12px;
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
         }
 
-        .highlight {
-            color: var(--accent-gold);
+        /* شبكة المسلسلات */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* بطاقة المسلسل */
+        .series-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .series-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .series-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--imdb-color);
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 20px;
             font-weight: 700;
-        }
-
-        /* زر العودة للأعلى */
-        .go-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--wood);
-            color: var(--cream);
-            width: 42px;
-            height: 42px;
-            border-radius: 30px;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.2s;
-            border: none;
-            z-index: 999;
+            gap: 5px;
         }
 
-        .go-top.show {
-            opacity: 1;
-            visibility: visible;
+        .platform-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-info {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .imdb-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--imdb-color);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .imdb-link:hover {
+            background: #e2b013;
+        }
+
+        /* رسالة عدم وجود نتائج */
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
         }
 
         /* فوتر */
         footer {
-            background: #0F261D;
-            color: #D9C5A6;
-            padding: 30px 20px;
+            background: var(--bg-secondary);
+            padding: 30px;
             text-align: center;
-            margin-top: 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
         }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 18px;
-        }
-
-        .social-icons a {
-            color: #D9C5A6;
-            font-size: 1.3rem;
-            text-decoration: none;
-        }
-
-        /* تحسينات للشاشات */
-        @media (min-width: 768px) {
-            .products-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 22px;
+        /* أنيميشن */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            .card-img {
-                width: 95px;
-                height: 95px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 420px) {
-            .brand h1 {
-                font-size: 2.4rem;
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-            .card-img {
-                width: 70px;
-                height: 70px;
+            .toolbar-content {
+                flex-direction: column;
+            }
+            .filter-buttons {
+                justify-content: center;
+            }
+            .stats {
+                flex-direction: column;
+            }
+            .series-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر مع أيقونة السلة -->
     <div class="hero">
-        <div class="cart-icon" id="cartIcon">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
-        <div class="brand">
-            <h1>Tree Coffee</h1>
-        </div>
-        <p>نحن لا نبيع مجرد قهوة نحن نبيع "تجربة"</p>
+        <h1><i class="fas fa-trophy"></i> أفضل مسلسلات 2025</h1>
+        <p>حسب تقييمات IMDb واختيارات الجمهور لهذا العام</p>
     </div>
 
-    <!-- ناف بار -->
-    <div class="nav-bar">
-        <a href="#coffee-menu"><i class="fas fa-mug-hot"></i> القهوة</a>
-        <a href="#sweets-menu"><i class="fas fa-cake-candles"></i> الحلا</a>
-        <a href="#our-story"><i class="fas fa-tree"></i> قصتنا</a>
-    </div>
-
-    <main class="container">
-        <!-- قسم القهوة -->
-        <section id="coffee-menu">
-            <div class="section-title">
-                <h2>قائمتنا للقهوة</h2>
+    <div class="toolbar">
+        <div class="toolbar-content">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن مسلسل...">
             </div>
-            <div class="products-grid" id="coffeeGrid">
-                <!-- المنتجات سيتم إضافتها بواسطة JavaScript -->
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-platform="all">الكل</button>
+                <button class="filter-btn" data-platform="HBO">HBO</button>
+                <button class="filter-btn" data-platform="Netflix">Netflix</button>
+                <button class="filter-btn" data-platform="Apple TV+">Apple TV+</button>
+                <button class="filter-btn" data-platform="Disney+">Disney+</button>
+                <button class="filter-btn" data-platform="Paramount+">Paramount+</button>
             </div>
-        </section>
-
-        <!-- قسم الحلا -->
-        <section id="sweets-menu">
-            <div class="section-title">
-                <h2>ركن الحلا</h2>
-            </div>
-            <div class="products-grid" id="sweetsGrid">
-                <!-- المنتجات سيتم إضافتها بواسطة JavaScript -->
-            </div>
-        </section>
-
-        <!-- قصتنا -->
-        <section id="our-story">
-            <div class="story-block">
-                <h2>🌳 جذور Tree · حكاية القهوة</h2>
-                <p>في <span class="highlight">Tree Coffee</span> نؤمن بأن القهوة الجيدة تبدأ من الأرض، مثل الشجرة التي تمتد جذورها عميقاً.</p>
-                <p>نستلهم من الخشب الدافيء والأخضر الطبيعي لنمنحك تجربة حسية توقظ الذاكرة. <span class="highlight">كل رشفة تحكي حكاية، وكل قهوة لدينا هي شهادة شغف.</span></p>
-                <p style="margin-top: 12px; font-style: italic;">✨ "اشرب ببطء، واستمتع بالغابة في فنجانك." ✨</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="social-icons">
-            <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p>© 2026 Tree Coffee · جميع الحقوق محفوظة</p>
-    </footer>
-
-    <button class="go-top" id="goTopBtn"><i class="fas fa-arrow-up"></i></button>
-
-    <!-- سلة التسوق -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-bag"></i> سلة الطلبات</h3>
-            <button class="close-cart" id="closeCartBtn"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="empty-cart">🛒 السلة فارغة</div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>المجموع الكلي:</span>
-                <span id="cartTotal">0 ر.س</span>
-            </div>
-            <button class="checkout-btn" id="checkoutBtn">
-                <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+                <span>وضع داكن</span>
             </button>
         </div>
     </div>
 
+    <div class="stats" id="stats">
+        <!-- stats will be inserted here -->
+    </div>
+
+    <div class="container">
+        <div class="series-grid" id="seriesGrid">
+            <!-- cards will be inserted here -->
+        </div>
+    </div>
+
+    <footer>
+        <p><i class="fas fa-star" style="color: #F5C518;"></i> بيانات مبنية على IMDb - أفضل مسلسلات 2025</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 - دليلك لأفضل الأعمال الدرامية لهذا العام</p>
+    </footer>
+
     <script>
-        // قائمة المنتجات
-        const products = [
-            // قهوة
-            { id: 1, name: "قهوة اليوم (حار)", price: 10, image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop", category: "coffee" },
-            { id: 2, name: "قهوة اليوم (بارد)", price: 12, image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&h=200&fit=crop", category: "coffee" },
-            { id: 3, name: "V60 (حار)", price: 15, image: "https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200&h=200&fit=crop", category: "coffee" },
-            { id: 4, name: "V60 (بارد)", price: 16, image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop", category: "coffee" },
-            // حلا
-            { id: 5, name: "كوكيز Tree", price: 12, image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=200&h=200&fit=crop", category: "sweets" },
-            { id: 6, name: "كرسبي", price: 14, image: "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=200&h=200&fit=crop", category: "sweets" },
-            { id: 7, name: "براوني", price: 13, image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200&h=200&fit=crop", category: "sweets" }
+        // بيانات المسلسلات (مبنية على تصنيفات IMDb لعام 2025)
+        const seriesData = [
+            {
+                id: 1,
+                title: "The White Lotus",
+                arabicTitle: "ذا وايت لوتس",
+                rating: 8.5,
+                platform: "HBO",
+                year: "2025",
+                seasons: 4,
+                image: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=300&fit=crop",
+                description: "مسلسل درامي كوميدي يدور في منتجع فاخر، يستكشف حياة النزلاء والموظفين وسط توترات اجتماعية وصراعات نفسية. الموسم الثالث حقق أرقاماً قياسية في المشاهدة.",
+                imdbUrl: "https://www.imdb.com/title/tt13406094/"
+            },
+            {
+                id: 2,
+                title: "The Last of Us",
+                arabicTitle: "ذا لاست أوف أس",
+                rating: 8.7,
+                platform: "HBO",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=300&fit=crop",
+                description: "مقتبس من لعبة الفيديو الشهيرة، يتابع قصة جويل وإيلي في عالم ما بعد نهاية العالم. الموسم الثاني يضيف عمقاً أكبر للعلاقات بين الشخصيات.",
+                imdbUrl: "https://www.imdb.com/title/tt10539194/"
+            },
+            {
+                id: 3,
+                title: "Severance",
+                arabicTitle: "سيفيرنس",
+                rating: 8.8,
+                platform: "Apple TV+",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=300&fit=crop",
+                description: "دراما نفسية عن موظفين يخضعون لعملية جراحية تفصل ذكريات العمل عن الحياة الشخصية. الموسم الثاني يكشف أسراراً جديدة عن شركة لومون.",
+                imdbUrl: "https://www.imdb.com/title/tt11280740/"
+            },
+            {
+                id: 4,
+                title: "Wednesday",
+                arabicTitle: "وينزداي",
+                rating: 8.0,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&h=300&fit=crop",
+                description: "الموسم الثاني من مغامرات وينزداي أدامز في أكاديمية نيفرمور، مع قصص أكثر ظلمة وغموضاً وعمقاً في الشخصيات.",
+                imdbUrl: "https://www.imdb.com/title/tt13443470/"
+            },
+            {
+                id: 5,
+                title: "Squid Game",
+                arabicTitle: "لعبة الحبار",
+                rating: 8.0,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=400&h=300&fit=crop",
+                description: "خاتمة ملحمية لسلسلة النجاح الكورية، مع ألعاب جديدة وأكثر دموية، وكشف النقاب عن المنظمين الحقيقيين للألعاب.",
+                imdbUrl: "https://www.imdb.com/title/tt10919420/"
+            },
+            {
+                id: 6,
+                title: "Dexter: Resurrection",
+                arabicTitle: "دكستر: القيامة",
+                rating: 9.0,
+                platform: "Paramount+",
+                year: "2025",
+                seasons: 1,
+                image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400&h=300&fit=crop",
+                description: "عودة دكستر مورغان بعد الأحداث الدرامية، هذه المرة في نيويورك مع تحديات جديدة وخصوم أشرس.",
+                imdbUrl: "https://www.imdb.com/title/tt23645810/"
+            },
+            {
+                id: 7,
+                title: "Monster: Ed Gein Story",
+                arabicTitle: "وحش: قصة إد جاين",
+                rating: 7.8,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 3,
+                image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=300&fit=crop",
+                description: "الموسم الثالث من سلسلة Monster يركز على حياة القاتل المتسلسل إد جاين، مع أداء استثنائي من تشارلي هونام.",
+                imdbUrl: "https://www.imdb.com/title/tt13298628/"
+            },
+            {
+                id: 8,
+                title: "Dept. Q",
+                arabicTitle: "قسم كيو",
+                rating: 8.2,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 1,
+                image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=300&fit=crop",
+                description: "مسلسل جريمة إسكندنافي عن فريق من المحققين يتولون قضايا قديمة لم تحل، مع طابع قاتم وأداء تمثيلي رائع.",
+                imdbUrl: "https://www.imdb.com/title/tt30331242/"
+            },
+            {
+                id: 9,
+                title: "Andor",
+                arabicTitle: "أندور",
+                rating: 8.6,
+                platform: "Disney+",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1581822261290-991b38693bdb?w=400&h=300&fit=crop",
+                description: "الموسم الثاني من سلسلة حرب النجوم التي تركز على الجاسوسية السياسية وبداية التمرد ضد الإمبراطورية.",
+                imdbUrl: "https://www.imdb.com/title/tt9253284/"
+            },
+            {
+                id: 10,
+                title: "Black Mirror",
+                arabicTitle: "بلاك ميرور",
+                rating: 8.7,
+                platform: "Netflix",
+                year: "2025",
+                seasons: 7,
+                image: "https://images.unsplash.com/photo-1542223616-9de9adb5e3e8?w=400&h=300&fit=crop",
+                description: "الموسم السابع يعود بشكل أقوى مع قصص جديدة عن مستقبل التكنولوجيا وتأثيرها على البشرية، بما في ذلك تكملة لـ USS Callister.",
+                imdbUrl: "https://www.imdb.com/title/tt2085059/"
+            },
+            {
+                id: 11,
+                title: "The Pitt",
+                arabicTitle: "ذا بيت",
+                rating: 8.9,
+                platform: "HBO",
+                year: "2025",
+                seasons: 1,
+                image: "https://images.unsplash.com/photo-1581093450025-4a7360e9aefb?w=400&h=300&fit=crop",
+                description: "مسلسل طبي واقعي يتابع يوميات طاقم قسم الطوارئ في مستشفى بيتسبرغ، مع أداء استثنائي من نواه وايلي.",
+                imdbUrl: "https://www.imdb.com/title/tt31938022/"
+            },
+            {
+                id: 12,
+                title: "Peacemaker",
+                arabicTitle: "بيس ميكر",
+                rating: 8.2,
+                platform: "HBO",
+                year: "2025",
+                seasons: 2,
+                image: "https://images.unsplash.com/photo-1616530946255-8f5a6f5f6f5a?w=400&h=300&fit=crop",
+                description: "الموسم الثاني من مغامرات كريس سميث (بيس ميكر) مع تحديات جديدة وتهديدات غير متوقعة للعالم.",
+                imdbUrl: "https://www.imdb.com/title/tt13146438/"
+            }
         ];
 
-        // سلة المشتريات
-        let cart = [];
+        // ترتيب المسلسلات حسب التقييم
+        let filteredSeries = [...seriesData].sort((a, b) => b.rating - a.rating);
+        let currentPlatform = "all";
+        let currentSearch = "";
 
-        // تحميل السلة من localStorage
-        function loadCart() {
-            const savedCart = localStorage.getItem('treeCoffeeCart');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
+        // عناصر DOM
+        const seriesGrid = document.getElementById('seriesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const statsDiv = document.getElementById('stats');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // عرض الإحصائيات
+        function updateStats() {
+            const total = filteredSeries.length;
+            const avgRating = (filteredSeries.reduce((sum, s) => sum + s.rating, 0) / total).toFixed(1);
+            const topRating = Math.max(...filteredSeries.map(s => s.rating));
+            
+            statsDiv.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${total}</div>
+                    <div class="stat-label">مسلسل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${avgRating}</div>
+                    <div class="stat-label">متوسط التقييم</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">⭐ ${topRating}</div>
+                    <div class="stat-label">أعلى تقييم</div>
+                </div>
+            `;
+        }
+
+        // عرض البطاقات
+        function displaySeries() {
+            let data = [...seriesData].sort((a, b) => b.rating - a.rating);
+            
+            // تصفية حسب المنصة
+            if (currentPlatform !== "all") {
+                data = data.filter(s => s.platform === currentPlatform);
             }
-            updateCartUI();
-        }
-
-        // حفظ السلة في localStorage
-        function saveCart() {
-            localStorage.setItem('treeCoffeeCart', JSON.stringify(cart));
-        }
-
-        // إضافة منتج إلى السلة
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
             
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
+            // تصفية حسب البحث
+            if (currentSearch) {
+                data = data.filter(s => 
+                    s.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                    s.arabicTitle.includes(currentSearch)
+                );
             }
             
-            saveCart();
-            updateCartUI();
-            showNotification(`✅ تم إضافة ${product.name} إلى السلة`);
-        }
-
-        // تحديث الكمية
-        function updateQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                const newQuantity = item.quantity + change;
-                if (newQuantity <= 0) {
-                    cart = cart.filter(item => item.id !== productId);
-                } else {
-                    item.quantity = newQuantity;
-                }
-            }
-            saveCart();
-            updateCartUI();
-        }
-
-        // حذف منتج
-        function removeItem(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            saveCart();
-            updateCartUI();
-            showNotification(`🗑️ تم حذف المنتج من السلة`);
-        }
-
-        // حساب المجموع
-        function calculateTotal() {
-            return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        }
-
-        // تحديث واجهة السلة
-        function updateCartUI() {
-            const cartItemsDiv = document.getElementById('cartItems');
-            const cartFooter = document.getElementById('cartFooter');
-            const cartCount = document.getElementById('cartCount');
-            const cartTotal = document.getElementById('cartTotal');
+            filteredSeries = data;
+            updateStats();
             
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<div class="empty-cart">🛒 السلة فارغة<br><span style="font-size:0.8rem;">أضف منتجاتك المفضلة</span></div>';
-                cartFooter.style.display = 'none';
+            if (data.length === 0) {
+                seriesGrid.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-tv" style="font-size: 3rem; margin-bottom: 15px; display: block;"></i>
+                        لا توجد نتائج مطابقة لبحثك
+                    </div>
+                `;
                 return;
             }
             
-            cartFooter.style.display = 'block';
-            cartTotal.textContent = calculateTotal() + ' ر.س';
-            
-            cartItemsDiv.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-img">
-                        <img src="${item.image}" alt="${item.name}">
+            seriesGrid.innerHTML = data.map(series => `
+                <div class="series-card">
+                    <div class="card-image">
+                        <img src="${series.image}" alt="${series.title}" loading="lazy">
+                        <div class="rating-badge">
+                            <i class="fas fa-star"></i> ${series.rating}
+                        </div>
+                        <div class="platform-badge">
+                            <i class="fas fa-tv"></i> ${series.platform}
+                        </div>
                     </div>
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-price">${item.price} ر.س</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button onclick="updateQuantity(${item.id}, -1)">-</button>
-                        <span class="cart-item-qty">${item.quantity}</span>
-                        <button onclick="updateQuantity(${item.id}, 1)">+</button>
-                        <button class="delete-item" onclick="removeItem(${item.id})"><i class="fas fa-trash"></i></button>
+                    <div class="card-content">
+                        <h3 class="card-title">${series.title}</h3>
+                        <div class="card-info">
+                            <span><i class="far fa-calendar-alt"></i> ${series.year}</span>
+                            <span><i class="fas fa-layer-group"></i> ${series.seasons} مواسم</span>
+                        </div>
+                        <p class="card-desc">${series.description}</p>
+                        <a href="${series.imdbUrl}" target="_blank" rel="noopener noreferrer" class="imdb-link">
+                            <i class="fab fa-imdb"></i> عرض على IMDb
+                        </a>
                     </div>
                 </div>
             `).join('');
         }
 
-        // إشعار منبثق
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                bottom: 80px;
-                left: 20px;
-                background: var(--deep-green);
-                color: var(--accent-gold);
-                padding: 12px 20px;
-                border-radius: 30px;
-                font-size: 0.85rem;
-                z-index: 2002;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                animation: slideIn 0.3s ease;
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.remove();
-            }, 2000);
-        }
+        // البحث
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            displaySeries();
+        });
 
-        // فتح/غلق السلة
-        function openCart() {
-            document.getElementById('cartOverlay').classList.add('active');
-            document.getElementById('cartSidebar').classList.add('active');
+        // أزرار التصفية
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentPlatform = btn.dataset.platform;
+                displaySeries();
+            });
+        });
+
+        // الوضع الداكن
+        let isDark = localStorage.getItem('theme') === 'dark';
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>وضع فاتح</span>';
         }
         
-        function closeCart() {
-            document.getElementById('cartOverlay').classList.remove('active');
-            document.getElementById('cartSidebar').classList.remove('active');
-        }
-
-        // إرسال الطلب عبر واتساب
-        function sendWhatsAppOrder() {
-            if (cart.length === 0) {
-                showNotification('⚠️ السلة فارغة، أضف منتجات أولاً');
-                return;
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>وضع فاتح</span>';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span>وضع داكن</span>';
             }
-            
-            let message = "🌳 *طلب جديد من Tree Coffee* 🌳\n\n";
-            message += "📋 *الطلبات:*\n";
-            cart.forEach(item => {
-                message += `• ${item.name} × ${item.quantity} = ${item.price * item.quantity} ر.س\n`;
-            });
-            message += `\n💰 *المجموع الكلي:* ${calculateTotal()} ر.س\n`;
-            message += `\n📅 تاريخ الطلب: ${new Date().toLocaleDateString('ar-SA')}\n`;
-            message += `\n🙏 شكراً لثقتكم بـ Tree Coffee ☕`;
-            
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/966530049845?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // عرض المنتجات في الصفحة
-        function displayProducts() {
-            const coffeeGrid = document.getElementById('coffeeGrid');
-            const sweetsGrid = document.getElementById('sweetsGrid');
-            
-            const coffeeProducts = products.filter(p => p.category === 'coffee');
-            const sweetsProducts = products.filter(p => p.category === 'sweets');
-            
-            coffeeGrid.innerHTML = coffeeProducts.map(product => `
-                <div class="coffee-card">
-                    <div class="card-img">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>${product.name}</h3>
-                            <span class="price">${product.price} ر.س</span>
-                        </div>
-                        <p class="desc">${product.id <= 2 ? 'تحضير يومي من أجود الحبوب' : (product.id <= 4 ? 'صبيب يدوي بنوتات مميزة' : 'حلى طازج يومياً')}</p>
-                        <button class="order-btn" onclick="addToCart(${product.id})">
-                            <i class="fas fa-shopping-cart"></i> أضف إلى السلة
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-            
-            sweetsGrid.innerHTML = sweetsProducts.map(product => `
-                <div class="coffee-card">
-                    <div class="card-img">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>${product.name}</h3>
-                            <span class="price">${product.price} ر.س</span>
-                        </div>
-                        <p class="desc">${product.name === 'كوكيز Tree' ? 'مقرمش مع شوكولاتة بلجيكية' : (product.name === 'كرسبي' ? 'مزيج كراميل وشوكولاتة' : 'غني بالشوكولاتة الداكنة')}</p>
-                        <button class="order-btn" onclick="addToCart(${product.id})">
-                            <i class="fas fa-shopping-cart"></i> أضف إلى السلة
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // التمرير السلس
-        document.querySelectorAll('.nav-bar a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
         });
-
-        // زر العودة للأعلى
-        const goTopBtn = document.getElementById('goTopBtn');
-        window.addEventListener('scroll', () => {
-            goTopBtn.classList.toggle('show', window.scrollY > 300);
-        });
-        goTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // أحداث السلة
-        document.getElementById('cartIcon').addEventListener('click', openCart);
-        document.getElementById('closeCartBtn').addEventListener('click', closeCart);
-        document.getElementById('cartOverlay').addEventListener('click', closeCart);
-        document.getElementById('checkoutBtn').addEventListener('click', sendWhatsAppOrder);
-
-        // إضافة تأثير CSS للـ animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(-100px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-        `;
-        document.head.appendChild(style);
 
         // تهيئة الصفحة
-        displayProducts();
-        loadCart();
+        displaySeries();
     </script>
 </body>
 </html>
